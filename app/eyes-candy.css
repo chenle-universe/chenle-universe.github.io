@@ -1,0 +1,101 @@
+/* Misty-blue paper, pink stars, notes and dolphins and pixel/calligraphic overprint. */
+.eyes-scrapbook-shell { position:relative; isolation:isolate; background:#e1e6ef url('/assets/eyes/music-dolphin-paper.webp') center top/min(100%,1500px) auto repeat-y; color:#303637; }
+.eyes-scrapbook-shell .site-header { background:#e4e8f0e8; border-color:#929bad50; color:#3e465c; backdrop-filter:none; }
+.eyes-scrapbook-shell .module-nav { color:#4b5268; }
+.eyes-scrapbook-shell .site-footer { background:#efacd1b8; border-color:#9d72844a; color:#3e3940; }
+.eyes-reader { color:#343638; }
+.eyes-reader .eyes-candy-masthead { position:relative; isolation:isolate; container-type:inline-size; display:block; margin:4px -8px 0; padding:14px 10px 15px; border:0; }
+.eyes-candy-masthead:before { content:''; position:absolute; z-index:-2; inset:52% -13px 12px; background:#f3b3d2e0; border-top:1px solid #fff8; transform:rotate(-2deg); }
+.eyes-candy-imprint { display:flex; justify-content:space-between; gap:12px; font:9px/1.4 ui-monospace,monospace; letter-spacing:.65px; }
+.eyes-candy-ornaments { position:absolute; inset:20px -15px 0; width:calc(100% + 30px); height:calc(100% - 20px); pointer-events:none; z-index:-1; }
+.eyes-reader-masthead .eyes-candy-title { position:relative; display:flex; flex-direction:column; margin:26px 2% 18px; padding:7px 0 7px; font:400 clamp(64px,25cqi,142px)/.78 'Great Vibes Local',cursive; letter-spacing:-3px; transform:rotate(-7deg); overflow:visible; }
+.eyes-candy-title>span:not(.eyes-candy-echo) { position:relative; display:block; }
+.eyes-candy-title .eyes-candy-through { align-self:flex-start; color:#303536; background:radial-gradient(circle,#303536 1px,transparent 1.45px) 0 0/3px 3px; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; padding:6px 22px 12px 8px; }
+.eyes-candy-title .eyes-candy-eyes { align-self:flex-end; margin-top:-4px; color:#e3e7f4; text-shadow:1px 1px #6b768b; -webkit-text-stroke:.35px #76839a; padding:5px 19px 14px 0; }
+.eyes-candy-eyes>i { font:inherit; font-size:.67em; }
+.eyes-candy-title .eyes-candy-echo { position:absolute; inset:0; padding:7px 8px; color:#df89bc; -webkit-text-fill-color:transparent; background:repeating-conic-gradient(#df89bc 0% 25%,transparent 0% 50%) 0 0/6px 7px; -webkit-background-clip:text; background-clip:text; transform:translate(9px,-8px) scale(1.035); z-index:-1; font:inherit; line-height:.98; opacity:.85; }
+.eyes-candy-echo>i { display:block; text-align:right; font:inherit; }
+.eyes-candy-colophon { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:9px; font:9px/1.5 ui-monospace,monospace; letter-spacing:.4px; }
+.eyes-candy-colophon>span:first-child { font:italic 17px/1.4 'Instrument Serif',Georgia,serif; }
+.eyes-reader-topline { padding:13px 5px; color:#4a5063; }
+.eyes-reader .eyes-book { outline:1px solid #929cb2; outline-offset:5px; border:6px solid #e0e6f1; background:#f1b4d2; box-shadow:3px 4px 0 #f8c8df,5px 7px 0 #c394ab,0 18px 32px #52685d21; }
+.eyes-reader .eyes-page-track { background:#e5e9f2; }
+.eyes-reader .eyes-spread { background:#eef0f7; }
+.eyes-reader .eyes-page-paper { scrollbar-color:#d990b9 #e5e9f4; }
+.eyes-reader .eyes-page-controls { margin-top:6px; color:#4a5269; }
+.eyes-reader .eyes-page-controls>button { border:1px solid #8993ab66; background:#edf0f7e6; border-radius:0; box-shadow:2px 2px #e7a1c4; }
+.eyes-reader .eyes-page-controls>span { background:#f6cfdfd9; padding:8px; color:#343c38; }
+.eyes-reader .eyes-chapter-tabs button { color:#3a5148; }
+.eyes-reader .eyes-chapter-tabs button[aria-current] b { background:#efa8ce; border-color:#4d6d60; border-radius:0; rotate:-7deg; }
+.eyes-reader .eyes-preview-notice { color:#3a4d45; background:#edf0f5cf; border-color:#a9b1c5; padding:10px; }
+.eyes-reader .eyes-preview-notice>span { background:#efb2d1; border-color:#ad7995; }
+.eyes-reader .eyes-cover-board { background:#e0e6f1; }
+/* Independent compositions keep their geometry, but share the new print palette. */
+.eyes-reader .photocopy-board { background:#e2e7f2; color:#323b37; }
+.eyes-reader .photocopy-board:after { background:radial-gradient(#ba6899 .7px,transparent 1px) 0 0/4px 4px; opacity:.14; }
+.eyes-reader .photocopy-board .eyes-photo-placeholder { background:linear-gradient(135deg,#e6b4cd,#e9d5df 40%,#addccd); }
+.eyes-reader .photocopy-board .eyes-note { background:#f3c3d9d9; border-color:#91677e; }
+.eyes-reader .photocopy-board .eyes-photo-caption { background:#eff1f7; color:#3c5147; }
+.eyes-reader .stripe-board { background:repeating-linear-gradient(90deg,#eeb2d0 0 25px,#e1e6f1 25px 50px); color:#3e3a42; }
+.eyes-reader .stripe-title h2,.eyes-reader .dots-title h2 { color:#35483e; font-family:'Great Vibes Local',cursive; letter-spacing:0; font-weight:400; }
+.eyes-reader .dots-board { background:#e2e7f2; }
+.eyes-reader .dots-profile-panel { background-color:#efa8cb; }
+.eyes-reader .dots-title { background:#e5eaf4; color:#34483d; }
+.eyes-reader .dots-footer { color:#3d4b42; }
+.eyes-reader .poster-board { background:#e5e9f3; color:#303c35; }
+.eyes-reader .poster-script { color:#db83b5; text-shadow:2px 2px #eef0f7; }
+.eyes-reader .poster-board .eyes-note { background:#f2b2d1; }
+.eyes-reader .poster-color-chips i { background:#eaa6cd; }
+.eyes-reader .poster-color-chips i+i { background:#d9e1ef; }
+.eyes-reader .backcover-board { background:#e6eaf3; border-color:#949fb5; color:#3d4b42; }
+.eyes-reader .backcover-envelope { background:#f1bbd5; border-color:#bd88a5; }
+.eyes-reader .backcover-envelope:before { background:#f9dae9; }
+.eyes-reader .backcover-board .eyes-note { background:#f9e7ef; }
+.eyes-reader .eyes-star-button { background:#f1b2d1; border-color:#6d826f; color:#354b3d; }
+.eyes-reader .eyes-photo-dialog { background:#e7ebf4; border-color:#eaa7ca; }
+.eyes-reader .eyes-photo-dialog::backdrop { background:#46675c96; }
+@media(max-width:760px) {
+ .eyes-scrapbook-shell { background-size:auto 1100px; }
+ .eyes-reader .eyes-candy-masthead { margin:0 -3px; padding:12px 5px 13px; }
+ .eyes-reader-masthead .eyes-candy-title { font-size:clamp(60px,24cqi,118px); letter-spacing:-1.5px; margin:25px 0 18px; }
+ .eyes-candy-imprint { font-size:7px; letter-spacing:.1px; }
+ .eyes-candy-colophon { font-size:7px; gap:8px; }
+ .eyes-candy-colophon>span:first-child { font-size:15px; }
+ .eyes-candy-title .eyes-candy-through { padding-right:12px; }
+ .eyes-candy-title .eyes-candy-eyes { padding-right:8px; }
+ .eyes-reader .eyes-book { border-width:4px; outline-offset:3px; }
+ .eyes-reader .eyes-page-controls>button { font-size:10px; }
+}
+.eyes-reader .eyes-design .eyes-note.tone-pink { background-color:#f2b8d3; }
+.eyes-reader .eyes-design .eyes-note.tone-blue { background-color:#dce4f2; }
+.eyes-reader .eyes-design .eyes-note.tone-cream { background-color:#f5f7e9; }
+.eyes-reader .eyes-design .eyes-note-label { color:#4b5266; }
+
+/* Expanded reader follows viewport width, rather than a viewport-height cap. */
+.eyes-reader .eyes-candy-masthead { max-width:740px; margin-inline:auto; }
+.eyes-candy-colophon { justify-content:flex-end; }
+.eyes-candy-colophon>span:first-child { font:9px/1.5 ui-monospace,monospace; }
+
+/* Compact two-line title: one small lead-in, one shared baseline for my Eyes. */
+.eyes-reader-masthead .eyes-candy-title {
+ display: flex; flex-direction: column; align-items: center; gap: 0;
+ margin: 20px auto 12px; padding: 0; max-width: 100%;
+ font-size: clamp(66px, 17cqi, 124px); line-height: 1.08;
+ letter-spacing: -1px; transform: none;
+}
+.eyes-candy-title .eyes-candy-through {
+ align-self: center; text-align: center; padding: 0 12px;
+ font-size: .65em; line-height: 1.12;
+}
+.eyes-candy-title .eyes-candy-eyes {
+ align-self: center; text-align: center; margin: -3px 0 0;
+ padding: 0 16px 8px; line-height: 1.08; white-space: nowrap;
+}
+.eyes-candy-title .eyes-candy-eyes>i { font-size: .64em; margin-right: .12em; }
+.eyes-reader .eyes-candy-masthead { padding-block: 12px; }
+.eyes-candy-colophon { margin-top: 2px; }
+@media(max-width: 760px) {
+ .eyes-reader-masthead .eyes-candy-title {
+  font-size: clamp(64px, 19cqi, 108px); margin: 16px auto 10px;
+ }
+}

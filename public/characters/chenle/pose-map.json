@@ -1,0 +1,106 @@
+{
+  "version": 2,
+  "provenance": "Newly generated poses and expressions using the supplied reference; not missing frames recovered from video.",
+  "atlas": "/characters/chenle/poses.webp",
+  "center": 4,
+  "frames": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 448,
+      "y": 0,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 896,
+      "y": 0,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 0,
+      "y": 448,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 448,
+      "y": 448,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 896,
+      "y": 448,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 0,
+      "y": 896,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 448,
+      "y": 896,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 896,
+      "y": 896,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 0,
+      "y": 1344,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 448,
+      "y": 1344,
+      "width": 448,
+      "height": 448
+    },
+    {
+      "x": 896,
+      "y": 1344,
+      "width": 448,
+      "height": 448
+    }
+  ],
+  "directions": {
+    "topLeft": 0,
+    "top": 1,
+    "topRight": 2,
+    "left": 3,
+    "center": 4,
+    "right": 5,
+    "bottomLeft": 6,
+    "bottom": 7,
+    "bottomRight": 8
+  },
+  "expressions": [
+    {
+      "name": "blink",
+      "frame": 9
+    },
+    {
+      "name": "smile",
+      "frame": 10
+    },
+    {
+      "name": "surprised",
+      "frame": 11
+    }
+  ],
+  "transition": "160ms aligned pose crossfade, not continuous video motion"
+}

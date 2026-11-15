@@ -1,0 +1,31 @@
+{
+  "name": "chenle-universe",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build && node scripts/build-fans.mjs",
+    "start": "next start",
+    "check": "tsc --noEmit",
+    "test": "node scripts/crossword-test.mjs && node scripts/physics-test.mjs && node scripts/orbit-test.mjs && node scripts/attention-test.mjs && node scripts/reactions-test.mjs && node scripts/aim-test.mjs && node scripts/cam-gestures-test.mjs && node scripts/cam-audio-test.mjs && node scripts/gacha-test.mjs && node scripts/chenle-fortune-test.mjs && node scripts/hoops-motion-test.mjs && node scripts/cam-visuals-test.mjs && node scripts/chenle-messages-test.mjs && node scripts/character-hero-test.mjs && node scripts/character-pose-test.mjs",
+    "test:fan": "node scripts/fan-interaction-test.mjs",
+    "test:crossword": "node scripts/crossword-test.mjs && node scripts/crossword-public-test.mjs && node scripts/reactions-test.mjs",
+    "test:notes": "node scripts/chenle-messages-test.mjs && node scripts/chenle-notes-api-test.mjs && node scripts/notes-constellation-test.mjs && node scripts/note-sticker-studio-test.mjs && node scripts/note-translation-test.mjs && node scripts/note-translation-browser-test.mjs",
+    "test:fortune": "node scripts/chenle-fortune-test.mjs && node scripts/gacha-test.mjs",
+    "test:style": "node scripts/style-lab-test.mjs && node scripts/style-rig-test.mjs",
+    "build:pages": "node scripts/build-pages.mjs"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "1.2.2",
+    "lucide-react": "^0.468.0",
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

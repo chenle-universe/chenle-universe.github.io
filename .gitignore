@@ -1,0 +1,9 @@
+node_modules
+.next/
+out/
+dist/
+.openai/
+.env*
+.dev.vars*
+*.tsbuildinfo
+public/downloads/

@@ -1,0 +1,1063 @@
+.cam-studio-shell {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 8% 22%, #d5efffc9, transparent 48%),
+    radial-gradient(ellipse at 95% 60%, #f6d7edb3, transparent 42%),
+    linear-gradient(140deg, #fffdf8, #f1f6ff 55%, #f1ecff);
+}
+.cam-studio-shell:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    135deg,
+    #fff8 0 1px,
+    transparent 1px 6px
+  );
+  opacity: 0.35;
+}
+.cam-studio-shell .site-header {
+  background: #fffdf8ad;
+  border-color: white;
+  backdrop-filter: blur(8px);
+}
+.cam-studio-shell .module-nav {
+  padding-top: 12px;
+}
+.cam-studio-shell .site-footer {
+  background: #fffdf880;
+}
+.cam-source-video {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -10px;
+  top: 0;
+  opacity: 0.001;
+  pointer-events: none;
+}
+.cam-studio {
+  --cam-blue: #435a91;
+  --cam-pink: #f6b8d8;
+  --cam-ice: #ddf4ff;
+  --cam-cream: #fffdf8;
+  --cam-lilac: #d8cbff;
+  color: var(--cam-blue);
+  max-width: 1260px;
+  padding: 23px 5% 50px;
+  margin: auto;
+}
+.cam-studio button,
+.cam-studio select,
+.cam-studio input,
+.cam-photo-dialog button,
+.cam-photo-dialog a {
+  font-family: "DM Sans", "Muyao Softbrush", "Gaegu", sans-serif;
+}
+.cam-studio button:focus-visible,
+.cam-studio a:focus-visible,
+.cam-studio select:focus-visible {
+  outline: 2px solid #9d82bc;
+  outline-offset: 4px;
+}
+.cam-studio button:disabled {
+  opacity: 0.42;
+}
+.cam-kicker {
+  font:
+    11px/1.6 "DM Sans",
+    sans-serif;
+  letter-spacing: 1.8px;
+  color: #8494b6;
+}
+.cam-studio-heading {
+  text-align: center;
+  padding: 0 0 24px;
+}
+.cam-studio-heading h1 {
+  font:
+    500 clamp(26px, 3.7vw, 51px)/1.25 "DM Sans",
+    sans-serif;
+  letter-spacing: -1.5px;
+  margin: 8px 0;
+  color: #435a91;
+}
+.cam-studio-heading h1 em {
+  font:
+    400 1.35em/0.8 "Great Vibes Local",
+    cursive;
+  color: #b58cbf;
+  margin: 0 5px;
+  letter-spacing: -1.5px;
+  text-shadow: 1px 1px #fff;
+}
+.cam-studio-heading > p {
+  font:
+    31px/1.25 "Great Vibes Local",
+    cursive;
+  color: #8998b9;
+  margin: 5px 0;
+}
+.cam-studio-heading > span:last-child {
+  display: block;
+  font-family: var(--hand-font);
+  font-size: 19px;
+  margin-top: 10px;
+  color: #7283a7;
+}
+.cam-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 18px;
+  border: 1px solid #fff;
+  background: #fffdf88f;
+  border-radius: 22px;
+  margin-bottom: 12px;
+  box-shadow: inset 0 1px 2px #fff;
+}
+.cam-device-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  color: #8d9db4;
+}
+.cam-device-status > i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b8c2d0;
+}
+.cam-device-status.is-on {
+  color: #517a84;
+}
+.cam-device-status.is-on > i {
+  background: #8ec6bd;
+  box-shadow: 0 0 0 4px #e4f5ee;
+}
+.cam-camera-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  font-size: 16px;
+  color: #5e77a2;
+  border-radius: 16px;
+  background: #ddf4ff73;
+  border: 1px solid white;
+}
+.cam-permission-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  font: 17px/1.7 var(--hand-font);
+  color: #8190ac;
+  background: #fffdf880;
+  border: 1px dashed #c9d8eb;
+  border-radius: 19px;
+  margin-bottom: 17px;
+}
+.cam-permission-note svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+.cam-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 295px;
+  gap: 22px;
+  align-items: start;
+}
+.cam-stage-column {
+  min-width: 0;
+}
+.cam-viewfinder {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fffdf8;
+  border-radius: 29px;
+  box-shadow:
+    0 4px 0 #c4d4e954,
+    0 10px 27px #7f94b318;
+  background: #ddf4ff;
+  aspect-ratio: 4/3;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.cam-viewfinder.is-portrait {
+  aspect-ratio: 3/4;
+  max-width: 480px;
+}
+.cam-viewfinder:before,
+.cam-viewfinder:after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+.cam-viewfinder:before {
+  left: 19px;
+  top: 19px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: 7px 0 0;
+}
+.cam-viewfinder:after {
+  right: 19px;
+  bottom: 19px;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  border-radius: 0 0 7px;
+}
+.cam-viewfinder canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.cam-viewfinder-label {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  font:
+    9px "DM Sans",
+    sans-serif;
+  letter-spacing: 1.4px;
+  pointer-events: none;
+  color: #768cad;
+  opacity: 0.75;
+}
+.cam-empty-caption {
+  position: absolute;
+  inset: 20% 12% 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: #889dbb;
+  text-align: center;
+  pointer-events: none;
+}
+.cam-empty-caption strong {
+  font: 23px var(--hand-font);
+  font-weight: 400;
+}
+.cam-empty-caption span {
+  font: 18px/1.7 var(--hand-font);
+  max-width: 350px;
+}
+.cam-empty-caption svg {
+  opacity: 0.7;
+}
+.cam-countdown {
+  position: absolute;
+  inset: 0;
+  background: #fff9;
+  display: grid;
+  place-items: center;
+  font:
+    90px "Instrument Serif",
+    Georgia,
+    serif;
+  color: #8094bc;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+.shutter-flash {
+  animation: camShutterFlash 0.45s ease-out;
+}
+.cam-tracking-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  color: #8594af;
+  padding: 13px 3px;
+}
+.cam-tracking-bar > span {
+  line-height: 1.6;
+}
+.cam-tracking-bar button {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 6px;
+  font-size: 13px;
+  color: #7983aa;
+  background: #fff9;
+  padding: 7px 10px;
+  border: 1px solid white;
+  border-radius: 13px;
+}
+.cam-inline-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  font: 15px/1.7 var(--hand-font);
+  background: #ffedf6;
+  border: 1px solid white;
+  padding: 10px 13px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  color: #9e7594;
+}
+.cam-inline-error button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.cam-mode-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+  padding: 7px;
+  border: 1px solid white;
+  border-radius: 23px;
+  background: #fffdf886;
+  box-shadow: inset 0 1px 3px #fff;
+}
+.cam-mode-nav button {
+  min-width: 0;
+  padding: 12px 4px;
+  border: 1px solid transparent;
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  color: #9aa4bc;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.cam-mode-nav button > span {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+}
+.cam-mode-nav button > small {
+  font: 15px var(--hand-font);
+}
+.cam-mode-nav button[aria-pressed="true"] {
+  background: linear-gradient(140deg, #fffdf8, #ddf4ff91 65%, #d8cbff57);
+  color: #5f78a4;
+  border-color: white;
+  box-shadow:
+    inset 0 1px 4px white,
+    0 3px 8px #8294b317;
+}
+.cam-control-panel {
+  position: relative;
+  border: 1px solid #fff;
+  border-radius: 27px;
+  padding: 23px 21px;
+  background: linear-gradient(145deg, #fffdf8ed, #eef5ffb8 65%, #f6eaf3ad);
+  box-shadow:
+    inset 1px 2px 5px #fff,
+    0 5px 0 #d8cbff33;
+  backdrop-filter: blur(7px);
+  min-width: 0;
+}
+.cam-control-panel h2 {
+  font: 25px/1.4 var(--hand-font);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #60779e;
+  margin: 8px 0 20px;
+}
+.cam-control-panel .cam-kicker {
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+.cam-label {
+  font: 17px var(--hand-font);
+  color: #8997b0;
+}
+.cam-frame-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 17px;
+}
+.cam-frame-choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 9px;
+  padding: 7px 9px;
+  border: 1px solid #e1e6f0;
+  border-radius: 15px;
+  background: #fff6;
+  color: #8c9bb7;
+}
+.cam-frame-choice > span:nth-child(2) {
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  line-height: 1.6;
+  max-width: 132px;
+}
+.cam-frame-choice > svg {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.cam-frame-choice.selected {
+  border-color: white;
+  background: linear-gradient(125deg, #dff3ff, #fae7f1);
+  box-shadow: 0 2px 0 #d3cbe254;
+  color: #5f739b;
+}
+.cam-mini-frame {
+  width: 37px;
+  height: 41px;
+  display: grid;
+  place-items: center;
+  padding: 5px 4px 10px;
+  background: linear-gradient(135deg, #ddf4ff, #fffdf8 55%, #e6dafa);
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #8795b320;
+  flex-shrink: 0;
+}
+.cam-mini-frame > i {
+  display: grid;
+  place-items: center;
+  font:
+    italic 14px "Instrument Serif",
+    Georgia,
+    serif;
+  background: #cedbec70;
+  width: 100%;
+  height: 100%;
+  color: #8b9cbb;
+  border-radius: 2px;
+}
+.frame-world .cam-mini-frame {
+  background: linear-gradient(120deg, #f6d8e6, #fffdf8);
+}
+.frame-card .cam-mini-frame {
+  width: 33px;
+  height: 43px;
+  background: linear-gradient(120deg, #ddf4ff, #e9c4e6, #fffdf8);
+}
+.cam-select-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font: 17px var(--hand-font);
+  color: #8596af;
+  margin-bottom: 10px;
+}
+.cam-select-label select {
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 13px;
+  background: #fffdf8c9;
+  font-size: 14px;
+  color: #7389ae;
+  padding: 10px 8px;
+  outline-offset: 2px;
+  max-width: 100%;
+}
+.cam-primary,
+.cam-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid white;
+  border-radius: 17px;
+  min-height: 43px;
+  padding: 10px 12px;
+  width: 100%;
+  font-size: 16px;
+  color: #6b7fa5;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.cam-primary {
+  background: linear-gradient(125deg, #fff6fc, #f4cfe3 55%, #dcd9fa);
+  box-shadow:
+    inset 1px 2px 5px #fff,
+    0 3px 0 #cabada5c;
+}
+.cam-secondary {
+  background: linear-gradient(120deg, #fffdf8, #ddf4ff6b);
+  box-shadow: inset 0 1px 3px white;
+}
+.cam-primary svg,
+.cam-secondary svg {
+  flex-shrink: 0;
+}
+.cam-shutter {
+  margin-top: 18px;
+  min-height: 52px;
+  letter-spacing: 1px;
+}
+.cam-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  font: 17px var(--hand-font);
+  color: #7c8fac;
+  cursor: pointer;
+}
+.cam-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.cam-switch > span {
+  position: relative;
+  width: 31px;
+  height: 18px;
+  border-radius: 12px;
+  background: #dbe2ee;
+  border: 1px solid white;
+  transition: background 0.2s;
+}
+.cam-switch > span:after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  left: 2px;
+  top: 2px;
+  box-shadow: 0 1px 2px #8695ae36;
+  transition: translate 0.2s;
+}
+.cam-switch input:checked + span {
+  background: #d3b5dc;
+}
+.cam-switch input:checked + span:after {
+  translate: 13px 0;
+}
+.cam-switch input:focus-visible + span {
+  outline: 2px solid #9d82bc;
+  outline-offset: 4px;
+}
+.cam-file-input {
+  display: none;
+}
+.cam-star-note {
+  display: flex;
+  gap: 9px;
+  padding-top: 17px;
+  margin-top: 20px;
+  border-top: 1px dashed #cdd9ea;
+  font: 15px/1.7 var(--hand-font);
+  color: #9b9bb4;
+}
+.cam-star-note svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.cam-star-note.earned {
+  color: #759595;
+}
+.cam-mode-guide {
+  font: 19px/1.9 var(--hand-font);
+  color: #7e8faf;
+  margin: -5px 0 15px;
+}
+.cam-sticker-sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px -10px 18px;
+}
+.cam-sticker-sample img {
+  width: 20%;
+  height: auto;
+  max-width: 53px;
+}
+.cam-error {
+  font: 17px/1.7 var(--hand-font);
+  color: #a17191;
+  background: #fff0f6;
+  border: 1px solid white;
+  border-radius: 14px;
+  padding: 12px;
+  margin-top: 15px;
+}
+.cam-small-note {
+  font: 15px/1.8 var(--hand-font);
+  color: #a08da9;
+  margin: 12px 0;
+}
+.cam-volume-label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font: 17px var(--hand-font);
+  color: #8193b0;
+  gap: 10px;
+  margin-top: 20px;
+}
+.cam-volume-label > span {
+  font: 12px "DM Sans";
+  color: #a2acc0;
+}
+.cam-volume-label input {
+  grid-column: 1/-1;
+  width: 100%;
+  accent-color: #b8a1d3;
+  cursor: pointer;
+}
+.cam-chord-controls {
+  display: grid;
+  grid-template-columns: 1fr 43px;
+  gap: 7px;
+  margin-top: 13px;
+}
+.cam-chord-controls > button {
+  background: #fffdf8b3;
+  border: 1px solid white;
+  padding: 9px 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 13px;
+  font-size: 14px;
+  color: #8293b3;
+}
+.cam-chord-controls strong {
+  font: 11px "DM Sans";
+  font-weight: 500;
+  margin-left: auto;
+  color: #a38faf;
+}
+.cam-record.is-recording {
+  color: #af6b91;
+  background: #fde5f0;
+}
+.cam-record.is-recording svg {
+  animation: camRecordPulse 1s ease-in-out infinite;
+}
+.cam-record-preview {
+  background: #fffdf8b0;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 12px;
+  margin-top: 16px;
+  min-width: 0;
+}
+.cam-record-preview > label {
+  display: block;
+  font: 16px var(--hand-font);
+  color: #8a9ab4;
+  margin-bottom: 8px;
+}
+.cam-record-preview audio {
+  width: 100%;
+  height: 35px;
+  min-width: 0;
+}
+.cam-record-preview > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  color: #8c84ad;
+  margin-top: 9px;
+  text-decoration: none;
+}
+.cam-note-progress {
+  display: block;
+  font: 11px "DM Sans";
+  text-align: right;
+  letter-spacing: 1px;
+  margin: 10px 4px 0;
+  color: #a4adc0;
+}
+.cam-keyboard {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 5px;
+  margin: 2px 0 12px;
+  background: #fff5;
+  padding: 7px;
+  border: 1px solid white;
+  border-radius: 17px;
+}
+.cam-keyboard button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 82px;
+  padding: 12px 0;
+  border: 1px solid white;
+  border-radius: 8px 8px 13px 13px;
+  color: #8594b1;
+  background: linear-gradient(#fffdf8, #e5effa);
+  box-shadow: 0 3px 0 #b4c4de59;
+  font: 12px "DM Sans";
+}
+.cam-keyboard button:nth-child(2n) {
+  background: linear-gradient(#fff7fb, #f3d9e9);
+}
+.cam-keyboard button.is-playing,
+.cam-keyboard button:active {
+  background: linear-gradient(#eee7fc, #d8cbff);
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 4px white,
+    0 0 17px #d8cbffb0;
+}
+.cam-privacy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font: 15px/1.7 var(--hand-font);
+  color: #9aa6bc;
+  margin: 24px 0 10px;
+}
+.cam-privacy svg {
+  flex-shrink: 0;
+}
+.cam-help {
+  max-width: 850px;
+  margin: 16px auto 0;
+  border-top: 1px dashed #cfdcec;
+  padding: 14px 8px;
+  color: #8d9ab3;
+  font: 16px/1.8 var(--hand-font);
+}
+.cam-help summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+.cam-help summary::-webkit-details-marker {
+  display: none;
+}
+.cam-help p {
+  margin-top: 12px;
+  color: #91a0b8;
+}
+.cam-photo-dialog {
+  width: min(94vw, 620px);
+  max-height: 92svh;
+  border: 2px solid white;
+  border-radius: 28px;
+  padding: 27px 23px 20px;
+  color: #627ba5;
+  background: linear-gradient(140deg, #fffdf8, #eaf5ff 60%, #eee8fa);
+  box-shadow: 0 10px 60px #435a9133;
+  overflow: auto;
+}
+.cam-photo-dialog::backdrop {
+  background: #60769a7a;
+  backdrop-filter: blur(6px);
+}
+.cam-photo-dialog h2 {
+  font: 24px var(--hand-font);
+  font-weight: 400;
+  margin: 9px 22px 18px 0;
+}
+.cam-photo-dialog > img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  max-height: 60svh;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 15px;
+  border: 1px solid white;
+  box-shadow: 0 4px 12px #7184a01c;
+}
+.cam-dialog-close {
+  position: absolute;
+  right: 15px;
+  top: 11px;
+  font: 29px Georgia;
+  color: #a494b8;
+  background: #fff8;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+}
+.cam-dialog-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+.cam-dialog-actions > button,
+.cam-dialog-actions > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 17px;
+  background: #fffdf8c9;
+  padding: 12px;
+  font-size: 17px;
+  color: #8797b5;
+  text-decoration: none;
+}
+.cam-dialog-actions > a {
+  background: linear-gradient(#fdeaf5, #f1cfdf);
+  color: #92769d;
+}
+.cam-photo-dialog > p {
+  font: 14px/1.7 var(--hand-font);
+  color: #a7a7bd;
+  margin-top: 15px;
+}
+@keyframes camShutterFlash {
+  0% {
+    filter: brightness(1);
+  }
+  20% {
+    filter: brightness(1.8);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+@keyframes camRecordPulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (max-width: 900px) {
+  .cam-studio {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  .cam-workspace {
+    grid-template-columns: minmax(0, 1fr) 245px;
+    gap: 16px;
+  }
+  .cam-control-panel {
+    padding: 19px 16px;
+  }
+  .cam-mode-nav {
+    gap: 4px;
+    padding: 5px;
+  }
+  .cam-mode-nav button > span {
+    font-size: 9px;
+    letter-spacing: 0.4px;
+  }
+  .cam-mode-nav button > small {
+    font-size: 14px;
+  }
+  .cam-mode-nav button {
+    padding: 10px 2px;
+  }
+  .cam-studio-heading {
+    padding-bottom: 19px;
+  }
+  .cam-tracking-bar {
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+  .cam-empty-caption {
+    inset: 20% 8% 25%;
+    gap: 9px;
+  }
+  .cam-empty-caption span {
+    font-size: 16px;
+  }
+  .cam-empty-caption strong {
+    font-size: 20px;
+  }
+  .cam-frame-choice > span:nth-child(2) {
+    font-size: 9px;
+  }
+}
+@media (max-width: 700px) {
+  .cam-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+  .cam-studio {
+    padding: 16px 5% 38px;
+  }
+  .cam-studio-heading h1 {
+    font-size: clamp(23px, 5.4vw, 36px);
+    letter-spacing: -1px;
+  }
+  .cam-studio-heading > p {
+    font-size: 28px;
+  }
+  .cam-studio-heading > span:last-child {
+    font-size: 18px;
+  }
+  .cam-kicker {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+  .cam-toolbar {
+    padding: 10px 12px;
+    border-radius: 19px;
+    gap: 9px;
+  }
+  .cam-device-status {
+    font-size: 12px;
+    gap: 7px;
+  }
+  .cam-camera-toggle {
+    font-size: 14px;
+    gap: 6px;
+    padding: 7px 10px;
+  }
+  .cam-permission-note {
+    font-size: 16px;
+    padding: 11px 12px;
+  }
+  .cam-viewfinder {
+    border-width: 2px;
+    border-radius: 23px;
+  }
+  .cam-viewfinder.is-portrait {
+    max-width: 400px;
+  }
+  .cam-viewfinder-label {
+    font-size: 8px;
+    right: 12px;
+    bottom: 8px;
+  }
+  .cam-control-panel {
+    padding: 21px;
+    border-radius: 25px;
+  }
+  .cam-control-panel h2 {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+  .cam-frame-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .cam-frame-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 11px 6px;
+    min-height: 102px;
+  }
+  .cam-frame-choice > span:nth-child(2) {
+    font-size: 9px;
+    letter-spacing: 0.4px;
+    max-width: 100%;
+  }
+  .cam-frame-choice > svg {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 13px;
+  }
+  .cam-mini-frame {
+    height: 37px;
+    width: 33px;
+  }
+  .frame-card .cam-mini-frame {
+    height: 38px;
+    width: 29px;
+  }
+  .cam-mode-nav button > span {
+    font-size: 10px;
+    letter-spacing: 0.7px;
+  }
+  .cam-mode-nav button > small {
+    font-size: 15px;
+  }
+  .cam-mode-nav button {
+    gap: 5px;
+    padding: 12px 2px;
+  }
+  .cam-tracking-bar {
+    font-size: 12px;
+    flex-wrap: nowrap;
+    padding: 11px 1px;
+  }
+  .cam-tracking-bar button {
+    font-size: 12px;
+    padding: 7px 8px;
+  }
+  .cam-mode-guide {
+    font-size: 20px;
+  }
+  .cam-sticker-sample {
+    max-width: 330px;
+    margin: 12px auto 18px;
+  }
+  .cam-sticker-sample img {
+    max-width: 62px;
+  }
+  .cam-switch {
+    font-size: 18px;
+  }
+  .cam-primary,
+  .cam-secondary {
+    font-size: 17px;
+    min-height: 46px;
+  }
+  .cam-star-note {
+    font-size: 16px;
+    margin-top: 19px;
+  }
+  .cam-privacy {
+    align-items: flex-start;
+    font-size: 14px;
+  }
+  .cam-privacy svg {
+    margin-top: 3px;
+  }
+  .cam-keyboard button {
+    height: 75px;
+  }
+  .cam-photo-dialog {
+    padding: 25px 15px 18px;
+    border-radius: 23px;
+  }
+  .cam-photo-dialog h2 {
+    font-size: 21px;
+  }
+  .cam-dialog-actions > button,
+  .cam-dialog-actions > a {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shutter-flash,
+  .cam-record.is-recording svg {
+    animation: none;
+  }
+}
+/* A hand-painted lace studio; functional controls replace editorial labels. */
+.cam-studio-shell{background:#cce9fa;isolation:isolate}.cam-studio-shell:before{position:fixed;inset:0;z-index:-1;opacity:1;background:url('/assets/cam/scrapbook-background.webp') center center/cover no-repeat;pointer-events:none}.cam-studio-shell .site-header{background:#f5fbff78;border-color:#fff9;backdrop-filter:blur(9px)}.cam-studio-shell .module-nav{color:#58768f;text-shadow:0 1px #fff}.cam-studio-shell .site-footer{background:#f6fbff70;border-color:#fff9}.cam-studio{max-width:1270px;padding-top:14px}.cam-studio-heading{padding-bottom:12px}.cam-studio-heading h1{color:#4c7189;text-shadow:0 1px #fff;letter-spacing:-1.4px;margin:8px 0 5px}.cam-studio-heading h1 em{color:#b786b3;text-shadow:0 1px white}.cam-studio-heading>p{font-size:33px;color:#748f9e;margin:7px 0 9px}.cam-toolbar{padding:10px 16px;border-color:#fffd;background:#f7fcff80;max-width:100%;margin-bottom:18px;box-shadow:0 3px 15px #6a9fc014}.cam-device-status{font:17px var(--hand-font);color:#6d8fa6}.cam-camera-toggle{font-size:17px;color:#6b879e;background:#fffdf8ad;border-radius:18px;padding:9px 16px}.cam-workspace{gap:22px;grid-template-columns:minmax(0,1fr) 270px}.cam-control-panel{background:linear-gradient(145deg,#fffdf8dc,#e7f5ffbf 70%,#ffeaf5a3);border:1px solid #fff;box-shadow:inset 1px 2px 8px #fff9,0 7px 23px #70a2be1a;border-radius:28px;padding:23px 20px}.cam-control-panel h2{font-size:24px;color:#6c879c;margin:0 0 17px}.cam-viewfinder{border:0;border-radius:22px;background:transparent;box-shadow:0 7px 25px #6995b326}.cam-viewfinder:before,.cam-viewfinder:after{display:none}.cam-viewfinder canvas{border-radius:22px}.cam-empty-caption{color:#6d8b9e;gap:14px}.cam-empty-caption strong{font-size:26px;font-family:var(--hand-font)}.cam-empty-caption svg{width:42px;height:42px;color:#92b0c1}
+.cam-photo-actions{display:grid;grid-template-columns:1fr 1.1fr;gap:12px;margin:15px 0 2px}.cam-frame-cycle,.cam-photo-actions .cam-shutter{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;border:1px solid #fff;border-radius:24px;padding:12px 16px;margin:0;font:20px var(--hand-font);color:#6e8ba7;box-shadow:inset 1px 2px 5px white,0 3px 0 #b7cede70;background:linear-gradient(125deg,#fffdf8,#e5f5ff)}.cam-photo-actions .cam-shutter{background:linear-gradient(125deg,#fff4fa,#f7d5e7 75%,#e4def6);color:#9b7b9e}.cam-frame-cycle:hover{background:linear-gradient(125deg,#fffdf8,#daf0ff)}.cam-frame-cycle>svg{width:19px;height:19px}.cam-frame-cycle-dots{display:flex;gap:4px;margin-left:2px}.cam-frame-cycle-dots>b{width:4px;height:4px;border-radius:50%;background:#bfcddd;transition:background .2s,width .2s}.cam-frame-cycle-dots>b.active{width:11px;background:#bd9ec2;border-radius:4px}.cam-mode-nav{margin-top:18px;border-radius:24px;background:#f5fbffb3;border-color:#fff;box-shadow:0 4px 15px #7399b314;padding:6px;gap:7px}.cam-mode-nav button{flex-direction:row;gap:8px;padding:14px 4px;border-radius:18px;color:#8a9fb2}.cam-mode-nav button>span{font:18px var(--hand-font);letter-spacing:0}.cam-mode-nav button[aria-pressed='true']{color:#7c7aa2;background:linear-gradient(125deg,#fffdf8,#eaf5ff 58%,#f1dfec)}.cam-switch{margin-top:17px;color:#7892a8;font-size:18px}.cam-select-label{font-size:18px}.cam-studio .cam-secondary{background:#fffdf8ad;border-color:#fff;color:#7c94ac;font-size:17px}.cam-studio .cam-primary{color:#937c9f}.cam-earned-badge{display:flex;justify-content:center;gap:7px;align-items:center;margin-top:20px;font:16px var(--hand-font);color:#739595}.cam-help{background:#fffdf84d;border:1px solid #fff9;border-radius:19px;padding:13px 17px;margin-top:20px;color:#7792a5}.cam-help summary{justify-content:space-between;font-size:17px}.cam-help p{font-size:17px;color:#8297a8}.cam-tracking-bar{color:#6d8b9e;font-size:14px}.cam-studio .cam-mode-guide{color:#6f8aa2}.cam-volume-label{color:#7890a8}.cam-photo-dialog>.cam-kicker{display:none}
+@media(max-width:900px){.cam-workspace{grid-template-columns:minmax(0,1fr) 230px;gap:16px}.cam-control-panel{padding:19px 16px}.cam-mode-nav{gap:4px}.cam-mode-nav button{gap:5px;padding:12px 2px}.cam-mode-nav button>span{font-size:16px}.cam-mode-nav button>svg{width:17px}.cam-photo-actions{gap:9px}.cam-frame-cycle,.cam-photo-actions .cam-shutter{font-size:18px;padding:11px 10px;gap:7px}}
+@media(max-width:700px){.cam-workspace{grid-template-columns:minmax(0,1fr);gap:17px}.cam-studio{padding-top:10px}.cam-studio-heading{padding-bottom:12px}.cam-studio-heading>p{font-size:29px;margin-bottom:7px}.cam-toolbar{margin-bottom:16px;padding:9px 12px}.cam-camera-toggle{font-size:16px;padding:9px 12px}.cam-device-status{font-size:16px}.cam-control-panel{padding:20px}.cam-control-panel h2{font-size:23px;margin-bottom:15px}.cam-photo-actions{margin-top:13px;gap:9px}.cam-frame-cycle,.cam-photo-actions .cam-shutter{font-size:19px;min-height:51px;border-radius:22px;gap:7px}.cam-mode-nav{margin-top:14px;gap:4px;padding:5px}.cam-mode-nav button{padding:13px 1px;gap:5px}.cam-mode-nav button>span{font-size:16px}.cam-mode-nav button>svg{width:17px;height:17px}.cam-empty-caption strong{font-size:24px}.cam-frame-cycle-dots{gap:3px}.cam-frame-cycle-dots>b{width:3px;height:3px}.cam-frame-cycle-dots>b.active{width:8px}.cam-help{margin-top:17px}.cam-viewfinder,.cam-viewfinder canvas{border-radius:17px}.cam-viewfinder.is-portrait{max-width:420px}.cam-studio-shell:before{background-position:28% center}}
+@media(max-width:370px){.cam-mode-nav button{flex-direction:column;gap:4px}.cam-mode-nav button>span{font-size:16px}.cam-frame-cycle,.cam-photo-actions .cam-shutter{font-size:17px}.cam-frame-cycle-dots{display:none}}
+.cam-frame-cycle { display:grid; grid-template-columns:19px minmax(0,1fr); column-gap:7px; row-gap:5px; min-width:0; }
+.cam-frame-cycle > span { min-width:0; line-height:1.2; }
+.cam-frame-cycle-dots { grid-column:1 / -1; justify-content:center; margin:0; }

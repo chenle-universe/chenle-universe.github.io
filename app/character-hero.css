@@ -1,0 +1,10 @@
+/* The source head stays centered; only real sprite frames change its pose. */
+.chenle-interactive-hero { touch-action:none; user-select:none; -webkit-user-select:none; }
+.chenle-sprite-surface { display:block; position:relative; width:100%; height:100%; pointer-events:none; }
+.chenle-sprite-surface>img,.chenle-sprite-surface>canvas { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+.chenle-sprite-surface>canvas { opacity:0; }
+.chenle-sprite-surface[data-ready='true']>canvas { opacity:1; }
+.chenle-sprite-surface[data-ready='true']>img { opacity:0; }
+.chenle-interactive-hero:active:not(:disabled),.chenle-interactive-hero:hover { transform:translate(-50%,-50%); }
+.chenle-interactive-hero .chenle-sprite-surface { transform:none; transition:none; animation:none; filter:none; }
+.orbit-universe .portrait-hello { max-width:min(190px,35vw); line-height:1.5; }

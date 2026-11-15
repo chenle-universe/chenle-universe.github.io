@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
+import {downloadPackage} from '../worker/download.mjs';
+const manifest=JSON.parse(readFileSync('worker/download-manifest.json','utf8'));
+let fetches=0;
+const env={ASSETS:{async fetch(request){fetches++;const path=new URL(request.url).pathname;assert.ok(manifest.parts.some(part=>part.path===path));return new Response(readFileSync(`public${path}`))}}};
+const url='https://example.test/downloads/chenle-universe-deploy.zip';
+const head=await downloadPackage(new Request(url,{method:'HEAD'}),env);assert.equal(head.status,200);assert.equal(head.headers.get('Content-Length'),String(manifest.size));assert.equal(fetches,0);
+assert.equal((await downloadPackage(new Request(url,{method:'POST'}),env)).status,405);
+const response=await downloadPackage(new Request(url),env);assert.equal(response.headers.get('Content-Type'),'application/zip');assert.ok(response.headers.get('Content-Disposition').includes('.zip'));
+const hash=createHash('sha256');let bytes=0;for await(const chunk of response.body){hash.update(chunk);bytes+=chunk.length}assert.equal(bytes,manifest.size);assert.equal(hash.digest('hex'),manifest.sha256);assert.equal(fetches,manifest.parts.length);assert.ok(manifest.parts.every(p=>p.size<25*1024*1024));
+console.log('PASS: streaming download exactly reproduces ZIP size and SHA-256; HEAD/GET/method handling; all asset parts within hosting limits.');

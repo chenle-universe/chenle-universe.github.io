@@ -1,0 +1,103 @@
+{
+  "placements": [
+    {
+      "word": "AIRPODS",
+      "id": 9,
+      "r": 0,
+      "c": 2,
+      "d": 1,
+      "number": 1
+    },
+    {
+      "word": "AKDONG",
+      "id": 11,
+      "r": 0,
+      "c": 2,
+      "d": 0,
+      "number": 1
+    },
+    {
+      "word": "DAEGAL",
+      "id": 5,
+      "r": 0,
+      "c": 4,
+      "d": 1,
+      "number": 2
+    },
+    {
+      "word": "EGGS",
+      "id": 6,
+      "r": 2,
+      "c": 4,
+      "d": 0,
+      "number": 3
+    },
+    {
+      "word": "RING",
+      "id": 10,
+      "r": 3,
+      "c": 8,
+      "d": 1,
+      "number": 4
+    },
+    {
+      "word": "TWO",
+      "id": 8,
+      "r": 4,
+      "c": 0,
+      "d": 0,
+      "number": 5
+    },
+    {
+      "word": "SHANGHAI",
+      "id": 0,
+      "r": 4,
+      "c": 6,
+      "d": 1,
+      "number": 6
+    },
+    {
+      "word": "DOLPHIN",
+      "id": 1,
+      "r": 5,
+      "c": 2,
+      "d": 0,
+      "number": 7
+    },
+    {
+      "word": "PIANO",
+      "id": 3,
+      "r": 7,
+      "c": 4,
+      "d": 1,
+      "number": 8
+    },
+    {
+      "word": "CHEWINGGUM",
+      "id": 2,
+      "r": 8,
+      "c": 0,
+      "d": 0,
+      "number": 9
+    },
+    {
+      "word": "CURRY",
+      "id": 4,
+      "r": 8,
+      "c": 0,
+      "d": 1,
+      "number": 9
+    },
+    {
+      "word": "MANDARIN",
+      "id": 7,
+      "r": 10,
+      "c": 2,
+      "d": 0,
+      "number": 10
+    }
+  ],
+  "height": 13,
+  "width": 10,
+  "score": 142
+}

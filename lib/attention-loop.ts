@@ -1,0 +1,5 @@
+export const ATTENTION_DURATION=28;
+// Fixed-camera attention poses; neutral bookends make the loop deterministic.
+export const attentionKeys=[{t:0,x:0,y:0},{t:1.2,x:0,y:0},{t:2.8,x:-1,y:0},{t:4,x:-1,y:0},{t:5.6,x:-.85,y:.65},{t:6.8,x:-.85,y:.65},{t:8.4,x:-.85,y:-.65},{t:9.6,x:-.85,y:-.65},{t:12,x:0,y:0},{t:13.4,x:0,y:0},{t:15,x:1,y:0},{t:16.2,x:1,y:0},{t:17.8,x:.85,y:.65},{t:19,x:.85,y:.65},{t:20.6,x:.85,y:-.65},{t:21.8,x:.85,y:-.65},{t:24.8,x:0,y:0},{t:28,x:0,y:0}];
+export function attentionPose(seconds:number,overshoot=false){const t=Math.max(0,Math.min(ATTENTION_DURATION,seconds));const end=attentionKeys.findIndex(k=>k.t>=t);if(end<=0)return {x:0,y:0};const a=attentionKeys[end-1],b=attentionKeys[end],v=(t-a.t)/(b.t-a.t),smooth=v*v*v*(v*(v*6-15)+10);const extra=overshoot?Math.sin(Math.PI*v)*Math.sin(2*Math.PI*v)*.025:0;const f=smooth+extra;return {x:a.x+(b.x-a.x)*f,y:a.y+(b.y-a.y)*f}}
+export function attentionFrame(seconds:number){const t=((seconds%ATTENTION_DURATION)+ATTENTION_DURATION)%ATTENTION_DURATION;return {eyes:attentionPose(t),head:attentionPose(Math.max(0,t-.22),true)}}

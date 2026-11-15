@@ -1,0 +1,6 @@
+MediaPipe Tasks Vision, @mediapipe/tasks-vision 1.2.2, Google LLC.
+License: Apache-2.0. https://github.com/google-ai-edge/mediapipe
+The locally hosted WASM files are copied unchanged from the installed package.
+The hand_landmarker.task model is the MediaPipe Hand Landmarker float16 v1 bundle:
+https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
+Inference runs in the visitor's browser. Camera video is not uploaded by this studio.

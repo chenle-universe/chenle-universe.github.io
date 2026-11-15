@@ -1,0 +1,11 @@
+import {spawnSync} from 'node:child_process';
+import {readFileSync,writeFileSync,readdirSync,statSync,existsSync} from 'node:fs';
+const repo=(process.env.GITHUB_REPOSITORY||'Veronica-J-118/chenleuniverse').split('/')[1];
+const basePath=repo.endsWith('.github.io')?'':`/${repo}`;
+const env={...process.env,NEXT_PUBLIC_BASE_PATH:basePath,NEXT_PUBLIC_API_ORIGIN:process.env.NEXT_PUBLIC_API_ORIGIN||'https://chenleland-fans-1122.nearbybay4.chatgpt.site'};
+const result=spawnSync(process.execPath,['node_modules/next/dist/bin/next','build'],{env,stdio:'inherit'});if(result.status!==0)process.exit(result.status||1);
+const roots=/(^|[^a-zA-Z0-9_./-])\/(assets|images|audio|brand|fonts|characters|cursors)\//g;
+let count=0;function walk(dir){for(const name of readdirSync(dir)){const path=`${dir}/${name}`;if(statSync(path).isDirectory())walk(path);else if(/\.(html|js|css|json|txt)$/.test(name)){const original=readFileSync(path,'utf8');const updated=original.replace(roots,(_,prefix,root)=>`${prefix}${basePath}/${root}/`);if(updated!==original){writeFileSync(path,updated);count++}}}}walk('out');
+writeFileSync('out/.nojekyll','');
+if(!existsSync('out/index.html'))throw Error('Missing Pages index.html');
+console.log(`GitHub Pages ready at ${basePath||'/'}; ${count} files adjusted; backend ${env.NEXT_PUBLIC_API_ORIGIN}.`);

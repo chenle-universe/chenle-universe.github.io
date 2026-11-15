@@ -1,0 +1,12 @@
+'use client';
+import {siteFetch} from '../../lib/site-network';
+import {useState,type FormEvent} from 'react';
+import type {ChenleMessage} from '../../data/chenleMessages';
+import './style.css';
+export default function ManageNotes(){
+ const [key,setKey]=useState(''),[authenticated,setAuthenticated]=useState(false),[notes,setNotes]=useState<ChenleMessage[]>([]),[busy,setBusy]=useState(false),[error,setError]=useState(''),[offset,setOffset]=useState(0),[more,setMore]=useState(false);
+ async function load(next=0){setBusy(true);setError('');try{const response=await siteFetch(`/api/notes/admin?offset=${next}`,{headers:{Authorization:`Bearer ${key}`},cache:'no-store'});if(!response.ok)throw Error(response.status===403?'管理密钥不正确。':'读取失败，请重试。');const data=await response.json();setNotes(data.notes);setMore(data.hasMore);setOffset(next);setAuthenticated(true)}catch(e){setError(e instanceof Error?e.message:'读取失败。')}finally{setBusy(false)}}
+ function login(event:FormEvent){event.preventDefault();void load()}
+ async function remove(note:ChenleMessage){if(!window.confirm('永久删除这条留言？此操作无法撤销。'))return;setBusy(true);setError('');try{const response=await siteFetch(`/api/notes/${note.id}/delete`,{method:'POST',headers:{Authorization:`Bearer ${key}`}});if(!response.ok)throw Error();await load(offset)}catch{setError('删除失败，请重试。')}finally{setBusy(false)}}
+ return <main className="notes-admin"><span>CHENLE UNIVERSE / OWNER</span><h1>留言管理</h1><p>此入口不显示在公开网站导航中。管理密钥只保存在当前页面内存中。</p>{!authenticated?<form onSubmit={login}><label htmlFor="admin-key">管理密钥</label><input id="admin-key" type="password" autoComplete="off" value={key} onChange={e=>setKey(e.target.value)} required/><button disabled={busy||!key}>{busy?'正在验证…':'进入管理'}</button></form>:<><div className="admin-actions"><button disabled={busy} onClick={()=>load(offset)}>刷新</button><button disabled={busy} onClick={()=>{setAuthenticated(false);setKey('');setNotes([])}}>退出管理</button></div><p>仅列出公开过的留言及管理员隐藏的留言。私人纸条不会显示在此处。</p>{!notes.length&&<p>暂无可管理的留言。</p>}{notes.map(note=><article key={note.id}><p>{note.message}</p><small>{note.from||'匿名'} · {note.createdAt?new Date(note.createdAt).toLocaleString('zh-CN'):''} · {note.status==='rejected'?'已隐藏':'公开'}</small><button disabled={busy} onClick={()=>remove(note)}>永久删除</button></article>)}<nav><button disabled={busy||offset===0} onClick={()=>load(Math.max(0,offset-50))}>上一页</button><button disabled={busy||!more} onClick={()=>load(offset+50)}>下一页</button></nav></>}{error&&<p role="alert">{error}</p>}</main>
+}

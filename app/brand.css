@@ -1,0 +1,104 @@
+/* The collage mark is shared by the header, universe map and exported card. */
+.site-header { min-height: 94px; height: auto; }
+.site-header .brand { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; padding: 3px 0; }
+.site-header .brand-logo { display: block; width: 166px; height: 83px; object-fit: contain; }
+.orbit-heading h1.universe-logo-title { margin: 8px auto 0; padding: 0; font-size: 0; line-height: 0; width: min(600px, 88vw); }
+.orbit-heading .universe-logo-title img { display: block; width: 100%; height: auto; object-fit: contain; }
+@media(max-width: 760px) {
+ .site-header .brand-logo { width: 138px; height: 69px; }
+ .site-header { min-height: 80px; gap: 10px; }
+ .site-header .header-right { gap: 10px; }
+ .orbit-heading h1.universe-logo-title { width: min(500px, 88vw); }
+}
+@media(max-width: 560px) {
+ .site-header { flex-wrap: wrap; justify-content: center; padding: 7px 4% 12px; gap: 0; }
+ .site-header .brand { width: 100%; }
+ .site-header .brand-logo { width: 146px; height: 73px; }
+ .site-header .header-right { width: 100%; justify-content: center; gap: 16px; }
+ .orbit-heading h1.universe-logo-title { width: min(370px, 92vw); }
+ .site-footer { flex-wrap: wrap; gap: 12px; }
+}
+
+/* Navigation owns its type scale: keep counter and title on separate grid rows. */
+.site-shell .orbit-universe .orbit-navigation { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:16px; width:min(100%,600px); max-width:600px; box-sizing:border-box; padding:8px 14px; }
+.site-shell .orbit-universe .orbit-arrow { width:44px; height:44px; min-width:44px; }
+.site-shell .orbit-universe .orbit-selection { min-width:0; width:100%; margin:0; }
+.site-shell .orbit-universe .orbit-selection-text { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto; align-items:center; justify-items:center; row-gap:8px; width:100%; color:#5f759b; font-family:var(--hand-font); text-align:center; }
+.site-shell .orbit-universe .orbit-selection-count { display:block; grid-row:1; position:static; margin:0; padding:0; font-size:16px!important; line-height:1.5!important; letter-spacing:1px!important; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.site-shell .orbit-universe .orbit-selection-label { display:block; grid-row:2; position:static; min-width:0; max-width:100%; margin:0; padding:0; font-size:22px!important; line-height:1.6!important; letter-spacing:0!important; white-space:normal; overflow-wrap:anywhere; }
+.site-shell .orbit-universe .orbit-selection-text>i { display:none; }
+@media(max-width:600px) {
+ .site-shell .orbit-universe .orbit-navigation { gap:10px; }
+ .site-shell .orbit-universe .orbit-selection-label { font-size:20px!important; }
+}
+
+/* Keep the logo prominent and the map instructions quietly to one side. */
+.orbit-heading .orbit-primary-hint {
+ display: flex; flex-direction: column; align-items: flex-end;
+ width: max-content; max-width: 90%; margin: 0 4% 0 auto;
+ padding: 0; gap: 1px; border: 0; border-radius: 0;
+ background: transparent; backdrop-filter: none; text-align: right;
+ font-size: 13px; line-height: 1.5; color: #62779f;
+}
+.orbit-heading .orbit-primary-hint strong { font-size: 13px; line-height: 1.5; }
+@media(max-width: 560px) {
+ .orbit-heading .orbit-primary-hint,
+ .orbit-heading .orbit-primary-hint strong { font-size: 12px; }
+}
+/* Back navigation remains legible over every photo and illustrated scene. */
+.site-shell .module-nav>.text-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:8px 15px;border:1px solid #ffffffdf;border-radius:28px;background:linear-gradient(135deg,#fffdf5f2,#eef3fff0);color:#526b8d;text-shadow:none;text-decoration:none;box-shadow:inset 0 1px 2px #fff,0 3px 9px #41577722;backdrop-filter:blur(9px);letter-spacing:.3px}.site-shell .module-nav>.text-btn>svg{flex-shrink:0;stroke-width:2}.site-shell .module-nav>.text-btn:hover{background:#fffdf9;box-shadow:0 4px 12px #41577730}.site-shell .module-nav>.text-btn:focus-visible{outline:3px solid #8ba3c7;outline-offset:3px}@media(max-width:600px){.site-shell .module-nav>.text-btn{min-height:42px;padding:8px 13px;font-size:15px}.site-shell .module-nav{gap:12px}}
+.site-shell .module-nav>.text-btn{color:#526b8d!important;text-shadow:none!important}
+
+/* CHENLE mobile layout patch v1: preserve normal flow and all music controls. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.site-shell .site-header .sound-toggle{display:inline-flex!important;align-items:center;justify-content:center}
+.capsule-prize-card.fortune-stationery .fortune-note-bottom{display:block;margin-top:18px}
+.capsule-prize-card.fortune-stationery .fortune-note-luck{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;text-align:center}
+.capsule-prize-card.fortune-stationery .fortune-note-luck>div{min-width:0;margin:0;padding:9px 4px}
+.capsule-prize-card.fortune-stationery .fortune-note-luck dd{margin:5px 0 0;overflow-wrap:anywhere}
+@media(max-width:650px){
+ .site-shell .site-header{position:sticky;inset:auto;top:0;z-index:40;height:auto;min-height:0;display:flex;flex-wrap:wrap;justify-content:center;gap:3px;padding:6px 4% 8px;background:#eaf0fbeF;backdrop-filter:blur(12px)}
+ .site-shell .site-header .brand{width:100%;padding:0}
+ .site-shell .site-header .brand-logo{width:118px;height:59px}
+ .site-shell .site-header .header-right{display:flex;width:100%;min-width:0;justify-content:center;align-items:center;flex-wrap:nowrap;gap:7px;min-height:44px}
+ .site-shell .site-header .fan-nav{flex:0 1 auto;min-width:0;white-space:nowrap;padding:7px 9px;font-size:16px!important;line-height:1.3!important}
+ .site-shell .site-header .star-progress{flex-shrink:0;padding:5px 6px;gap:3px;font-size:13px;white-space:nowrap}
+ .site-shell .site-header .lang-switch{flex-shrink:0;gap:4px;font-size:14px;padding:6px 0;white-space:nowrap}
+ .site-shell .site-header .icon-btn{flex-shrink:0;min-height:40px;padding:5px}
+ .site-shell .site-header .sound-toggle{display:inline-flex!important;align-items:center;justify-content:center;gap:4px;min-height:44px;padding:6px 7px;border:1px solid #b9c9e0;border-radius:20px;background:#fffdf8ed;color:#526b8d}
+ .site-shell .site-header .sound-toggle svg{width:16px;height:16px;flex-shrink:0}
+ .site-shell .site-header .sound-toggle:after{content:'开启音乐';font:12px/1.2 'DM Sans',sans-serif;white-space:nowrap}
+ .site-shell .site-header .sound-toggle[aria-pressed=true]:after{content:'关闭音乐'}
+ html:lang(ko) .site-shell .site-header .sound-toggle:after{content:'음악 켜기'}
+ html:lang(ko) .site-shell .site-header .sound-toggle[aria-pressed=true]:after{content:'음악 끄기'}
+ .site-shell:has(main[data-page=universe]) .site-header .brand{display:none}
+ .site-shell main[data-page=universe] .orbit-universe{padding:16px 0 24px}
+ .site-shell main[data-page=opening] .dream-opening{padding-top:24px}
+ .site-shell .orbit-heading>span{display:block;font-size:12px;line-height:1.4;letter-spacing:1px}
+ .site-shell .orbit-heading h1.universe-logo-title{width:min(272px,74vw);margin:8px auto 6px}
+ .site-shell .orbit-heading .orbit-primary-hint{max-width:94%;width:auto;align-items:center;text-align:center;margin:7px auto 10px;padding:0 8px;gap:3px;font-size:18px!important;line-height:1.4!important}
+ .site-shell .orbit-heading .orbit-primary-hint strong{font-size:16px!important;line-height:1.4!important}
+ .site-shell .orbit-scene{height:clamp(420px,64svh,500px);margin-top:0}
+ .site-shell .portrait-hello{max-width:145px;font-size:12px;line-height:1.4}
+ .site-shell .module-nav{display:flex;align-items:center;gap:10px;padding:12px 5% 0}
+ .site-shell .module-nav>.text-btn{flex:0 0 auto;white-space:nowrap;min-width:max-content;min-height:42px;padding:8px 12px;font-size:16px!important;line-height:1.3!important}
+ .site-shell .module-nav>span{min-width:0;flex:1;text-align:right;font-size:9px;line-height:1.4;letter-spacing:.5px;overflow-wrap:anywhere}
+ .site-shell .words-page.notes-compose-view{display:grid;grid-template-columns:minmax(100px,.38fr) minmax(0,.62fr);gap:16px 12px;align-items:center;padding-top:4px}
+ .site-shell .notes-compose-view .notes-photo-reveal{position:relative;inset:auto;grid-column:1;grid-row:1;width:100%;height:auto;aspect-ratio:941/1671;max-height:none;margin:0;align-self:center;border-radius:14px;background-size:100% 100%}
+ .site-shell .notes-compose-view .notes-quiet-heading{grid-column:2;grid-row:1;width:100%;max-width:none;min-width:0;margin:0;padding:0;gap:8px}
+ .site-shell .notes-compose-view .notes-quiet-heading h1.notes-designed-title{width:100%;max-width:100%;margin:0}
+ .site-shell .notes-compose-view .notes-quiet-heading>span{font-size:7px;letter-spacing:.4px;padding:4px 5px;text-align:center}
+ .site-shell .notes-compose-view .notes-quiet-heading>p{font-size:17px!important;line-height:1.45!important;padding:4px 8px}
+ .site-shell .notes-compose-view .notes-composer{grid-column:1/-1;width:100%;margin:0 auto}
+ .site-shell .notes-sky-view .notes-quiet-heading h1.notes-designed-title{width:min(360px,88vw);max-width:100%;margin:8px auto 12px}
+ .site-shell .notes-board-tabs{gap:7px;margin-bottom:10px;padding-bottom:12px}
+ .site-shell .notes-board-tabs button{font-size:16px!important;line-height:1.3!important;min-height:42px;padding:8px 11px;white-space:nowrap}
+ .site-shell .notes-feed-status{font-size:15px!important;line-height:1.5!important;margin:8px 0 12px}
+ .site-shell .notes-empty-hint{font-size:17px!important;line-height:1.55!important;margin:12px 0 18px}
+}
+@media(max-width:360px){
+ .site-shell .site-header .header-right{gap:4px}
+ .site-shell .site-header .fan-nav{font-size:14px!important;padding:7px 7px}
+ .site-shell .site-header .lang-switch{font-size:13px}
+ .site-shell .site-header .sound-toggle{padding:6px 5px}
+}

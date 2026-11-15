@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import sharp from 'sharp';import {ChenlePoseAnimator} from '../lib/character/ChenlePoseAnimator.mjs';
+const map=JSON.parse(readFileSync('public/characters/chenle/pose-map.json'));const metadata=await sharp('public'+map.atlas).metadata();assert.ok(metadata.hasAlpha);assert.equal(Object.keys(map.directions).length,9);assert.equal(new Set(Object.values(map.directions)).size,9);assert.equal(metadata.width,1344);assert.equal(metadata.height,1792);
+let jobs=new Map(),counter=0,images=[],timers=new Map(),clock=0,ready=0;
+let draws=0;const ctx=()=>({clearRect(){draws=0},drawImage(){draws++;assert.ok(draws<=1,'One portrait only: no overlapping image layers');assert.equal(this.globalAlpha,1);assert.equal(this.globalCompositeOperation,'source-over');},globalAlpha:1,globalCompositeOperation:'source-over'});
+const canvas={width:0,height:0,clientWidth:265,clientHeight:318,getContext:ctx,ownerDocument:{createElement(){return {width:0,height:0,getContext:ctx}}}};
+const player=new ChenlePoseAnimator(canvas,map,{requestFrame:fn=>{jobs.set(++counter,fn);return counter;},cancelFrame:id=>jobs.delete(id),setTimeout:fn=>{timers.set(++counter,fn);return counter;},clearTimeout:id=>timers.delete(id),imageFactory:()=>{const i={src:'',onload:null,onerror:null};images.push(i);return i;},onReady:()=>ready++,random:()=>0});
+assert.equal(images.length,1);images[0].onload();assert.equal(ready,1);
+function frames(n=70){for(let i=0;i<n;i++){clock+=1000/60;const c=[...jobs.values()];jobs.clear();for(const fn of c)fn(clock);}}
+frames();assert.equal(jobs.size,0,'Static idle must not spin a 60fps loop');
+for(const [d,index] of Object.entries(map.directions)){player.setDirection(d);frames();assert.equal(player.target,index);assert.equal(player.mix,1);assert.equal(jobs.size,0);}
+player.setDirection('left');frames();assert.ok(player.react(clock));assert.equal(player.react(clock+10),false);frames(90);assert.equal(player.expression,null);assert.equal(player.target,map.center,'Every completed expression must return to the exact default frame');assert.equal(player.mix,1);assert.equal(jobs.size,0);
+player.setDirection('topRight');frames(3);player.setDirection('bottomLeft');frames();assert.equal(player.target,6);assert.equal(images.length,1,'No new image loads during tracking, expressions or recovery');
+player.setVisible(false);assert.equal(jobs.size,0);assert.equal(timers.size,0);player.setVisible(true);frames();player.setReducedMotion(true);player.setDirection('right');frames();assert.equal(player.target,5);assert.equal(jobs.size,0);assert.equal(timers.size,0);player.destroy();assert.equal(jobs.size,0);assert.equal(timers.size,0);assert.equal(canvas.width,0);
+console.log('PASS: 9 unique generated poses; one preloaded alpha texture; zero steady-state rAF; exact post-expression center recovery; cooldown; rapid direction changes; pause/visibility/reduced-motion/cleanup.');

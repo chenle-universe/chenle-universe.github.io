@@ -1,0 +1,65 @@
+/* A paper zine on a horizontal, native scroll-snap rail. */
+.eyes-scrapbook-shell { background:#e9e7e9; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23393939' filter='url(%23n)' opacity='.045' d='M0 0h150v150H0z'/%3E%3C/svg%3E"); }
+.eyes-reader { width:100%; max-width:1040px; padding:12px 30px 36px; color:#26372c; }
+.eyes-reader-masthead { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:10px 0; border-top:1px solid #304536; border-bottom:1px solid #304536; }
+.eyes-reader-masthead h1 { margin:0; font:600 clamp(19px,4vw,31px)/1 'DM Sans',sans-serif; letter-spacing:-1.2px; }
+.eyes-reader-masthead>span { flex-shrink:0; text-align:right; font:8px/1.5 ui-monospace,monospace; letter-spacing:1px; }
+.eyes-reader-topline { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 0; }
+.eyes-reader-topline p { font:italic 18px/1.3 'Instrument Serif',Georgia,serif; }
+.eyes-reader-topline>span { font-size:11px; }
+.eyes-reader-topline>span>span { padding-left:5px; font-size:16px; }
+.eyes-reader .eyes-book { background:#faf7ef; box-shadow:3px 3px 0 #f4f1e8,4px 4px 0 #bab9b6,7px 7px 0 #eeebe5,8px 8px 0 #aaa9a7,0 14px 28px #39443a24; }
+.eyes-page-track { display:flex; width:100%; height:auto; aspect-ratio:4/5; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; scrollbar-width:none; -ms-overflow-style:none; cursor:grab; }
+.eyes-page-track::-webkit-scrollbar { display:none; }
+.eyes-page-track.is-dragging { scroll-snap-type:none; cursor:grabbing; user-select:none; }
+.eyes-reader .eyes-spread { flex:0 0 100%; width:100%; min-width:0; height:100%; overflow:hidden; scroll-snap-align:start; scroll-snap-stop:always; animation:none; touch-action:auto; background:#fffaf1; }
+.eyes-page-paper { width:100%; height:100%; overflow-y:auto; overscroll-behavior-y:contain; scrollbar-width:thin; scrollbar-color:#899b8a #f3eee7; }
+.eyes-reader .eyes-design { box-shadow:none; min-height:100%; }
+.eyes-reader .eyes-page-controls { padding:18px 0 0; }
+.eyes-reader .eyes-page-controls>button { min-width:72px; min-height:44px; padding:4px 8px; gap:7px; border:0; font-size:12px; }
+.eyes-reader .eyes-page-controls>span { font:11px/1.3 ui-monospace,monospace; }
+.eyes-reader .eyes-page-controls b { font-size:16px; }
+.eyes-reader .eyes-page-controls small { font-size:11px; margin-top:5px; }
+.eyes-reader .eyes-chapter-tabs { display:flex; justify-content:center; gap:3px; padding:9px 0 0; overflow:visible; }
+.eyes-reader .eyes-chapter-tabs button { flex:0 0 38px; min-height:38px; width:38px; align-items:center; text-align:center; padding:0; border:0; border-radius:0; background:transparent; rotate:0deg; transform:none; box-shadow:none; color:#667468; }
+.eyes-reader .eyes-chapter-tabs b { display:grid; place-items:center; width:27px; height:27px; font:10px/1 ui-monospace,monospace; border:1px solid transparent; }
+.eyes-reader .eyes-chapter-tabs button[aria-current] b { border-color:#324c3a; border-radius:50%; color:#263c2c; background:#e1ecb5; }
+.eyes-reader .eyes-preview-notice { padding-top:12px; border-top:1px solid #c6c9bf; font-size:11px; line-height:1.6; margin:12px 0 0; gap:8px; }
+.eyes-reader .eyes-preview-notice>span { padding:2px 6px; background:#f2eff3; border:1px solid #b1b8b1; font-size:10px; rotate:0deg; }
+.eyes-sr-only { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.eyes-reader .eyes-cover-board { height:100%; min-height:100%; background:#e5e0e4; display:grid; place-items:center; }
+.eyes-reader .eyes-cover-board .eyes-photo { height:100%; width:100%; }
+.eyes-reader .eyes-cover-board .eyes-photo-button { padding:0; background:none; border:0; box-shadow:none; transform:none; clip-path:none; }
+.eyes-reader .eyes-cover-board .eyes-photo-media { height:100%; min-height:0; background:none; }
+.eyes-reader .eyes-cover-board img { object-fit:contain; }
+.eyes-reader .eyes-cover-board .eyes-photo-caption,.eyes-reader .eyes-cover-board .eyes-photo-zoom-mark { display:none; }
+.eyes-reader .eyes-cover-board .eyes-photo-button:focus-visible { outline-offset:-5px; }
+.eyes-reader .eyes-photo-dialog { cursor:auto; }
+@media(max-width:760px) {
+  .eyes-reader { width:100%; padding:8px 18px 28px; }
+  .eyes-reader-masthead { padding:9px 0; }
+  .eyes-reader-masthead h1 { font-size:21px; letter-spacing:-.9px; }
+  .eyes-reader-masthead>span { font-size:7px; letter-spacing:.6px; }
+  .eyes-reader-topline { padding:9px 0; }
+  .eyes-reader-topline p { font-size:16px; }
+  .eyes-reader-topline>span { font-size:10px; }
+  .eyes-reader .eyes-note p { font-size:17px; }
+  .eyes-reader .eyes-page-controls { gap:5px; padding-top:13px; }
+  .eyes-reader .eyes-page-controls>button { min-width:65px; padding:3px; font-size:11px; }
+  .eyes-reader .eyes-page-controls small { max-width:155px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .eyes-page-track,.eyes-page-paper { scroll-behavior:auto !important; }
+  .eyes-reader * { animation:none !important; transition:none !important; }
+}
+/* Keep one complete paper plus page controls within the reading viewport. */
+.eyes-reader { --eyes-book-width:min(100%,calc(80svh - 120px)); }
+.eyes-reader .eyes-book,
+.eyes-reader .eyes-reader-topline,
+.eyes-reader .eyes-page-controls,
+.eyes-reader .eyes-chapter-tabs { width:var(--eyes-book-width); margin-left:auto; margin-right:auto; }
+@media(max-height:500px) {
+  .eyes-reader .eyes-page-controls>button { min-width:44px; }
+  .eyes-reader .eyes-page-controls>button>span,
+  .eyes-reader .eyes-page-controls small { display:none; }
+}

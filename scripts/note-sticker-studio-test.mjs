@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {readFileSync,existsSync} from 'node:fs';
+import ts from 'typescript';
+import React from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {NOTE_STICKER_CATALOG,cleanNoteDraft} from '../lib/note-design.mjs';
+const require=createRequire(import.meta.url);for(const ext of ['.ts','.tsx'])require.extensions[ext]=(module,file)=>module._compile(ts.transpileModule(readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText,file);
+const {dragNoteSticker,pinchNoteSticker,transformNoteSticker}=require('../lib/note-sticker-layout.ts');
+const Canvas=require('../components/NoteStickerCanvas.tsx').default;
+assert.equal(NOTE_STICKER_CATALOG.length,23);for(const asset of NOTE_STICKER_CATALOG)assert.ok(existsSync('public'+asset.src),asset.src);assert.equal(new Set(NOTE_STICKER_CATALOG.map(a=>a.id)).size,23);
+const s={uid:'example-placement',id:'friends-high-five',x:40,y:50,size:20,rotation:0};
+assert.equal(dragNoteSticker(s,30,20,300,400).x,50);assert.equal(dragNoteSticker(s,30,20,300,400).y,55);assert.equal(dragNoteSticker(s,60,40,600,800).x,50);
+assert.equal(pinchNoteSticker(s,100,150,Math.PI/2).size,30);assert.equal(pinchNoteSticker(s,100,150,Math.PI/2).rotation,90);
+assert.equal(transformNoteSticker(s,{size:100}).size,45);assert.equal(transformNoteSticker(s,{x:-100,y:300}).x,0);assert.equal(transformNoteSticker(s,{x:-100,y:300}).y,100);
+const draft={message:'一张可以自由摆放贴纸的生日纸条。',styleVariant:'postcard',textColor:'#435a79',stickers:[s]};assert.deepEqual(JSON.parse(JSON.stringify(cleanNoteDraft(draft))).stickers,[s]);
+const editable=renderToStaticMarkup(React.createElement(Canvas,{stickers:[s],editable:true,selected:s.uid,onChange(){},onSelect(){}}));assert.ok(editable.includes('friends-high-five')===false);assert.ok(editable.includes('/assets/notes/stickers/high-five.png'));assert.ok(editable.includes('left:40%'));assert.ok(editable.includes('width:20%'));assert.ok(editable.includes('aria-pressed="true"'));
+const reader=renderToStaticMarkup(React.createElement(Canvas,{stickers:[{...s,rotation:72}]}));assert.ok(!reader.includes('<button'));assert.ok(reader.includes('rotate(72deg)'));
+for(const name of ['sticky','star','polaroid','envelope','receipt','postcard']){const svg=readFileSync(`public/assets/notes/papers/${name}.svg`,'utf8');assert.ok(svg.includes('<svg'));assert.ok(svg.includes('viewBox="0 0 1000 700"'))}
+assert.ok(readFileSync('components/OrbitTitle.tsx','utf8').includes('/assets/notes/words-gel-emblem-ice.png'));
+console.log('PASS: 23 existing image stickers; all asset files; responsive drag coordinates, pinch scaling/rotation, bounds, selected and read-only rendering, saved transform round-trip, six stationery designs and gel map emblem.');

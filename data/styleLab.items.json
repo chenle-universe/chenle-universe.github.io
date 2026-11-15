@@ -1,0 +1,510 @@
+[
+  {
+    "id": "hair-black",
+    "category": "hair",
+    "image": "/assets/style-lab/hair/hair-black-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/hair-black-v2.webp",
+    "layerOrder": 60,
+    "tags": [
+      "hair"
+    ],
+    "displayName": "黑发",
+    "displayNameKo": "흑발",
+    "placeholder": true
+  },
+  {
+    "id": "hair-blond",
+    "category": "hair",
+    "image": "/assets/style-lab/hair/hair-blond-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/hair-blond-v2.webp",
+    "layerOrder": 60,
+    "tags": [
+      "hair"
+    ],
+    "displayName": "金发",
+    "displayNameKo": "금발",
+    "placeholder": true
+  },
+  {
+    "id": "hair-red",
+    "category": "hair",
+    "image": "/assets/style-lab/hair/hair-red-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/hair-red-v2.webp",
+    "layerOrder": 60,
+    "tags": [
+      "hair"
+    ],
+    "displayName": "红发",
+    "displayNameKo": "레드 헤어",
+    "placeholder": true
+  },
+  {
+    "id": "hair-silver",
+    "category": "hair",
+    "image": "/assets/style-lab/hair/hair-silver-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/hair-silver-v2.webp",
+    "layerOrder": 60,
+    "tags": [
+      "hair"
+    ],
+    "displayName": "银灰发",
+    "displayNameKo": "실버 헤어",
+    "placeholder": true
+  },
+  {
+    "id": "jersey",
+    "category": "tops",
+    "image": "/assets/style-lab/tops/jersey-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/jersey-v2.webp",
+    "layerOrder": 40,
+    "tags": [
+      "sport"
+    ],
+    "displayName": "篮球球衣",
+    "displayNameKo": "농구 유니폼",
+    "placeholder": true
+  },
+  {
+    "id": "stage-jacket",
+    "category": "tops",
+    "image": "/assets/style-lab/tops/stage-jacket-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/stage-jacket-v2.webp",
+    "layerOrder": 40,
+    "tags": [
+      "stage"
+    ],
+    "displayName": "舞台服",
+    "displayNameKo": "무대 의상",
+    "placeholder": true
+  },
+  {
+    "id": "hoodie",
+    "category": "tops",
+    "image": "/assets/style-lab/tops/hoodie-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/hoodie-v3.webp",
+    "layerOrder": 40,
+    "tags": [
+      "casual"
+    ],
+    "displayName": "休闲卫衣",
+    "displayNameKo": "후드티",
+    "placeholder": true
+  },
+  {
+    "id": "knit",
+    "category": "tops",
+    "image": "/assets/style-lab/tops/knit-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/knit-v2.webp",
+    "layerOrder": 40,
+    "tags": [
+      "soft"
+    ],
+    "displayName": "针织衫",
+    "displayNameKo": "니트",
+    "placeholder": true
+  },
+  {
+    "id": "tee",
+    "category": "tops",
+    "image": "/assets/style-lab/tops/tee-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/tee-v2.webp",
+    "layerOrder": 40,
+    "tags": [
+      "casual"
+    ],
+    "displayName": "T恤",
+    "displayNameKo": "티셔츠",
+    "placeholder": true
+  },
+  {
+    "id": "jeans",
+    "category": "bottoms",
+    "image": "/assets/style-lab/bottoms/jeans-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/jeans-v2.webp",
+    "layerOrder": 30,
+    "tags": [
+      "casual"
+    ],
+    "displayName": "牛仔裤",
+    "displayNameKo": "청바지",
+    "placeholder": true
+  },
+  {
+    "id": "cargo",
+    "category": "bottoms",
+    "image": "/assets/style-lab/bottoms/cargo-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/cargo-v2.webp",
+    "layerOrder": 30,
+    "tags": [
+      "street"
+    ],
+    "displayName": "工装裤",
+    "displayNameKo": "카고 팬츠",
+    "placeholder": true
+  },
+  {
+    "id": "shorts",
+    "category": "bottoms",
+    "image": "/assets/style-lab/bottoms/shorts-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/shorts-v2.webp",
+    "layerOrder": 30,
+    "tags": [
+      "sport"
+    ],
+    "displayName": "运动短裤",
+    "displayNameKo": "운동 반바지",
+    "placeholder": true
+  },
+  {
+    "id": "trousers",
+    "category": "bottoms",
+    "image": "/assets/style-lab/bottoms/trousers-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/trousers-v2.webp",
+    "layerOrder": 30,
+    "tags": [
+      "stage"
+    ],
+    "displayName": "西装裤",
+    "displayNameKo": "슬랙스",
+    "placeholder": true
+  },
+  {
+    "id": "sneakers",
+    "category": "shoes",
+    "image": "/assets/style-lab/shoes/sneakers-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/sneakers-v2.webp",
+    "layerOrder": 20,
+    "tags": [
+      "sport"
+    ],
+    "displayName": "运动鞋",
+    "displayNameKo": "운동화",
+    "placeholder": true
+  },
+  {
+    "id": "boots",
+    "category": "shoes",
+    "image": "/assets/style-lab/shoes/boots-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/boots-v2.webp",
+    "layerOrder": 20,
+    "tags": [
+      "stage"
+    ],
+    "displayName": "靴子",
+    "displayNameKo": "부츠",
+    "placeholder": true
+  },
+  {
+    "id": "loafers",
+    "category": "shoes",
+    "image": "/assets/style-lab/shoes/loafers-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/loafers-v2.webp",
+    "layerOrder": 20,
+    "tags": [
+      "smart"
+    ],
+    "displayName": "皮鞋",
+    "displayNameKo": "로퍼",
+    "placeholder": true
+  },
+  {
+    "id": "headphones",
+    "category": "accessories",
+    "image": "/assets/style-lab/accessories/headphones-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/headphones-v3.webp",
+    "layerOrder": 70,
+    "tags": [
+      "music"
+    ],
+    "displayName": "耳机",
+    "displayNameKo": "헤드폰",
+    "placeholder": true,
+    "slot": "headwear"
+  },
+  {
+    "id": "sunglasses",
+    "category": "accessories",
+    "image": "/assets/style-lab/accessories/sunglasses-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/sunglasses-v3.webp",
+    "layerOrder": 70,
+    "tags": [
+      "street"
+    ],
+    "displayName": "墨镜",
+    "displayNameKo": "선글라스",
+    "placeholder": true,
+    "slot": "eyewear"
+  },
+  {
+    "id": "cap",
+    "category": "accessories",
+    "image": "/assets/style-lab/accessories/cap-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/cap-v2.webp",
+    "layerOrder": 80,
+    "tags": [
+      "sport"
+    ],
+    "displayName": "棒球帽",
+    "displayNameKo": "야구 모자",
+    "placeholder": true,
+    "slot": "headwear",
+    "hidesHairCrown": true
+  },
+  {
+    "id": "necklace",
+    "category": "accessories",
+    "image": "/assets/style-lab/accessories/necklace-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/necklace-v2.webp",
+    "layerOrder": 70,
+    "tags": [
+      "stage"
+    ],
+    "displayName": "项链",
+    "displayNameKo": "목걸이",
+    "placeholder": true,
+    "slot": "neckwear"
+  },
+  {
+    "id": "basketball",
+    "category": "accessories",
+    "image": "/assets/style-lab/accessories/basketball-v2.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/basketball-v2.webp",
+    "layerOrder": 70,
+    "tags": [
+      "sport"
+    ],
+    "displayName": "篮球",
+    "displayNameKo": "농구공",
+    "placeholder": true,
+    "slot": "hand-prop"
+  },
+  {
+    "id": "court",
+    "category": "background",
+    "image": "/assets/style-lab/background/court-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/court-v3.webp",
+    "layerOrder": 0,
+    "tags": [
+      "sport"
+    ],
+    "displayName": "篮球场",
+    "displayNameKo": "농구장",
+    "placeholder": true
+  },
+  {
+    "id": "stage",
+    "category": "background",
+    "image": "/assets/style-lab/background/stage-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/stage-v3.webp",
+    "layerOrder": 0,
+    "tags": [
+      "stage"
+    ],
+    "displayName": "舞台",
+    "displayNameKo": "무대",
+    "placeholder": true
+  },
+  {
+    "id": "practice",
+    "category": "background",
+    "image": "/assets/style-lab/background/practice-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/practice-v3.webp",
+    "layerOrder": 0,
+    "tags": [
+      "practice"
+    ],
+    "displayName": "练习室",
+    "displayNameKo": "연습실",
+    "placeholder": true
+  },
+  {
+    "id": "city",
+    "category": "background",
+    "image": "/assets/style-lab/background/city-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/city-v3.webp",
+    "layerOrder": 0,
+    "tags": [
+      "city"
+    ],
+    "displayName": "城市夜景",
+    "displayNameKo": "도시 야경",
+    "placeholder": true
+  },
+  {
+    "id": "dream",
+    "category": "background",
+    "image": "/assets/style-lab/background/dream-v3.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/dream-v3.webp",
+    "layerOrder": 0,
+    "tags": [
+      "dream"
+    ],
+    "displayName": "Y2K 梦核星空",
+    "displayNameKo": "Y2K 별하늘",
+    "placeholder": true
+  },
+  {
+    "id": "pajama-shirt",
+    "category": "tops",
+    "displayName": "西瓜睡衣上衣",
+    "displayNameKo": "수박 잠옷 셔츠",
+    "layerOrder": 40,
+    "tags": [
+      "soft",
+      "pajama"
+    ],
+    "armY": 710,
+    "neckline": "crew",
+    "image": "/assets/style-lab/tops/pajama-shirt.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/pajama-shirt.webp",
+    "placeholder": true
+  },
+  {
+    "id": "graffiti-tee",
+    "category": "tops",
+    "displayName": "涂鸦叠穿T恤",
+    "displayNameKo": "그래피티 레이어드 티",
+    "layerOrder": 40,
+    "tags": [
+      "street"
+    ],
+    "armY": 475,
+    "neckline": "crew",
+    "image": "/assets/style-lab/tops/graffiti-tee.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/graffiti-tee.webp",
+    "placeholder": true
+  },
+  {
+    "id": "denim-jacket",
+    "category": "tops",
+    "displayName": "明线牛仔外套",
+    "displayNameKo": "스티치 데님 재킷",
+    "layerOrder": 40,
+    "tags": [
+      "casual",
+      "street"
+    ],
+    "armY": 710,
+    "neckline": "crew",
+    "image": "/assets/style-lab/tops/denim-jacket.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/denim-jacket.webp",
+    "placeholder": true
+  },
+  {
+    "id": "sailor-shirt",
+    "category": "tops",
+    "displayName": "白色海军领上衣",
+    "displayNameKo": "화이트 세일러 셔츠",
+    "layerOrder": 40,
+    "tags": [
+      "stage"
+    ],
+    "armY": 710,
+    "neckline": "sailor",
+    "image": "/assets/style-lab/tops/sailor-shirt.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/sailor-shirt.webp",
+    "placeholder": true
+  },
+  {
+    "id": "retro-vest",
+    "category": "tops",
+    "displayName": "红蓝篮球背心",
+    "displayNameKo": "레드 네이비 농구 조끼",
+    "layerOrder": 40,
+    "tags": [
+      "sport"
+    ],
+    "armY": 460,
+    "neckline": "crew",
+    "image": "/assets/style-lab/tops/retro-vest.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/retro-vest.webp",
+    "placeholder": true
+  },
+  {
+    "id": "pajama-pants",
+    "category": "bottoms",
+    "displayName": "西瓜睡衣长裤",
+    "displayNameKo": "수박 잠옷 바지",
+    "layerOrder": 30,
+    "tags": [
+      "soft",
+      "pajama"
+    ],
+    "image": "/assets/style-lab/bottoms/pajama-pants.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/pajama-pants.webp",
+    "placeholder": true
+  },
+  {
+    "id": "sleep-mask",
+    "category": "accessories",
+    "displayName": "薄荷睡眠眼罩",
+    "displayNameKo": "민트 수면 안대",
+    "layerOrder": 80,
+    "tags": [
+      "reference"
+    ],
+    "slot": "headwear",
+    "hidesHairCrown": false,
+    "image": "/assets/style-lab/accessories/sleep-mask.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/sleep-mask.webp",
+    "placeholder": true
+  },
+  {
+    "id": "black-cap",
+    "category": "accessories",
+    "displayName": "做旧黑色棒球帽",
+    "displayNameKo": "워싱 블랙 캡",
+    "layerOrder": 80,
+    "tags": [
+      "reference"
+    ],
+    "slot": "headwear",
+    "hidesHairCrown": true,
+    "image": "/assets/style-lab/accessories/black-cap.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/black-cap.webp",
+    "placeholder": true
+  },
+  {
+    "id": "hair-rollers",
+    "category": "hair",
+    "displayName": "发卷发型",
+    "displayNameKo": "헤어롤 스타일",
+    "layerOrder": 60,
+    "tags": [
+      "hair",
+      "reference"
+    ],
+    "image": "/assets/style-lab/hair/hair-rollers.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/hair-rollers.webp",
+    "placeholder": true
+  },
+  {
+    "id": "gold-chains",
+    "category": "accessories",
+    "displayName": "层叠金色项链",
+    "displayNameKo": "레이어드 골드 목걸이",
+    "layerOrder": 70,
+    "tags": [
+      "reference"
+    ],
+    "slot": "neckwear",
+    "hidesHairCrown": false,
+    "image": "/assets/style-lab/accessories/gold-chains.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/gold-chains.webp",
+    "placeholder": true
+  },
+  {
+    "id": "black-gloves",
+    "category": "accessories",
+    "displayName": "黑色露指长手套",
+    "displayNameKo": "블랙 핑거리스 워머",
+    "layerOrder": 95,
+    "tags": [
+      "street"
+    ],
+    "slot": "hands",
+    "image": "/assets/style-lab/accessories/black-gloves.webp",
+    "thumbnail": "/assets/style-lab/thumbnails/black-gloves.webp",
+    "placeholder": true
+  }
+]

@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createRequire} from 'node:module';
+import ts from 'typescript';
+const require=createRequire(import.meta.url);require.extensions['.ts']=(module,file)=>module._compile(ts.transpileModule(readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText,file);
+const {publicNoteFeed,startNoteFeedRefresh}=require('../lib/note-feed.ts');
+assert.deepEqual(publicNoteFeed([]),[]);
+const note={id:'shared',message:'一起祝辰乐生日快乐',status:'approved',source:'remote'};assert.deepEqual(publicNoteFeed([note]),[note]);
+for(const invalid of [{notes:[note]},[{...note,status:'pending'}],[{...note,source:'local'}]])assert.throws(()=>publicNoteFeed(invalid));
+const windowEvents=new Map(),documentEvents=new Map();let timer,cleared,refreshes=0;
+const host={addEventListener:(key,fn)=>windowEvents.set(key,fn),removeEventListener:key=>windowEvents.delete(key),setInterval:(fn,ms)=>{assert.equal(ms,15000);timer=fn;return 42},clearInterval:id=>cleared=id};
+const document={hidden:false,addEventListener:(key,fn)=>documentEvents.set(key,fn),removeEventListener:key=>documentEvents.delete(key)};
+const stop=startNoteFeedRefresh(()=>refreshes++,host,document);assert.equal(refreshes,1,'Opening the board fetches current shared notes');timer();assert.equal(refreshes,2);document.hidden=true;timer();assert.equal(refreshes,2,'Background tabs do not poll');document.hidden=false;documentEvents.get('visibilitychange')();assert.equal(refreshes,3);windowEvents.get('focus')();assert.equal(refreshes,4);stop();assert.equal(cleared,42);assert.equal(windowEvents.size,0);assert.equal(documentEvents.size,0);
+console.log('PASS: shared-only feed validation, refresh on board entry/focus/return, 15-second foreground updates and cleanup.');

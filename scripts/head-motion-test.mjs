@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';import {damp,headDepth,makeHeadMesh} from '../lib/head-motion.ts';
+let a=0,b=0;for(let i=0;i<60;i++)a=damp(a,1,1/60,9);for(let i=0;i<30;i++)b=damp(b,1,1/30,9);assert.ok(Math.abs(a-b)<1e-10,'Movement must be frame-rate independent');assert.ok(a<1&&a>.99);assert.equal(damp(.3,1,0),.3);assert.ok(damp(.5,-1,.016)<.5);assert.ok(headDepth(.525,.68)>headDepth(.02,.02),'Surface has facial depth, not a flat plane');
+const mesh=makeHeadMesh(),count=mesh.vertices.length/5;assert.ok(count<65536);assert.equal(mesh.indices.length,70*84*6);for(const i of mesh.indices)assert.ok(i<count);for(const n of mesh.vertices)assert.ok(Number.isFinite(n));for(let i=0;i<mesh.vertices.length;i+=5){assert.ok(mesh.vertices[i+3]>=0&&mesh.vertices[i+3]<=1);assert.ok(mesh.vertices[i+4]>=0&&mesh.vertices[i+4]<=1)}
+console.log('PASS: smooth continuous motion, frame-rate independence, non-flat depth surface and valid WebGL mesh.');

@@ -1,0 +1,72 @@
+{
+  "photo-01": {
+    "image": "/images/memory-gacha/photo-01.png",
+    "width": 1456,
+    "height": 1090,
+    "sha256": "2b284170824d061ab9849303735781ba60f676b778c891ac97e849e32eb9e051",
+    "sourceFile": "1/photo-01.png"
+  },
+  "photo-02": {
+    "image": "/images/memory-gacha/photo-02.png",
+    "width": 1014,
+    "height": 1518,
+    "sha256": "290392d00c6fd4cbb126ae3e781ddfa4da6abd8b319f0b4a41cf1d8685106f9e",
+    "sourceFile": "2/photo-02.png"
+  },
+  "photo-03": {
+    "image": "/images/memory-gacha/photo-03.JPG",
+    "width": 1768,
+    "height": 2653,
+    "sha256": "ce28fed4765794bd42a223113e33a66ce7254c3c33a148fca8aebc814545f35f",
+    "sourceFile": "1/photo-03.JPG"
+  },
+  "photo-04": {
+    "image": "/images/memory-gacha/photo-04.JPG",
+    "width": 1756,
+    "height": 2634,
+    "sha256": "679e8f84e409ee91fb6a57afac121edd36e899d5c704c97b32433d54bc010c5a",
+    "sourceFile": "1/photo-04.JPG"
+  },
+  "photo-05": {
+    "image": "/images/memory-gacha/photo-05.JPG",
+    "width": 2428,
+    "height": 3643,
+    "sha256": "ada86ef2a9030a974599ae331febab4b726004e67d3a5f6d3a27b198ea944845",
+    "sourceFile": "1/photo-05.JPG"
+  },
+  "photo-06": {
+    "image": "/images/memory-gacha/photo-06.JPG",
+    "width": 2569,
+    "height": 4000,
+    "sha256": "9fa945ad59bd360d922a23d40764eb9e181ecebddfd887ed580e3e56eee45a43",
+    "sourceFile": "1/photo-06.JPG"
+  },
+  "photo-07": {
+    "image": "/images/memory-gacha/photo-07.JPG",
+    "width": 2361,
+    "height": 3542,
+    "sha256": "c385c0b193d43a39262903581679d4b36c3e46dbc91c4161b77bc5279c32e700",
+    "sourceFile": "1/photo-07.JPG"
+  },
+  "photo-08": {
+    "image": "/images/memory-gacha/photo-08.JPG",
+    "width": 1951,
+    "height": 2927,
+    "sha256": "de99300fbb738f2700e70af8400b19fc3ec9e3e4ad5750abbc59ce375f213e2b",
+    "sourceFile": "2/photo-08.JPG"
+  },
+  "photo-09": {
+    "image": "/images/memory-gacha/photo-09.JPG",
+    "width": 2477,
+    "height": 3716,
+    "sha256": "5942f416d713e078ac206d48bd9fb54d6cba7f661e022a6a5a0b7a577cbad921",
+    "sourceFile": "2/photo-09.JPG"
+  },
+  "photo-10": {
+    "image": "/images/memory-gacha/photo-10.JPG",
+    "width": 2317,
+    "height": 3476,
+    "sha256": "f32b14b997ac48efef514caf859a0f1a62e5e666a1dbb43087e0dac42cb8153a",
+    "sourceFile": "2/photo-10.JPG"
+  }
+}

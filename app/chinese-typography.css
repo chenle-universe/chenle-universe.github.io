@@ -1,0 +1,6 @@
+/* Chinese reading size is measured from each module; English display typography stays intact. */
+html:lang(zh-CN) [data-zh-copy="true"]{font-size:var(--zh-copy-size)!important;line-height:var(--zh-copy-leading)!important;letter-spacing:.015em!important;word-spacing:normal!important}
+html:lang(zh-CN) textarea{font-size:20px;line-height:1.55;letter-spacing:.015em}
+html:lang(zh-CN) .birthday-letter p{margin-block:0 12px}
+html:lang(zh-CN) .module-heading p{margin-top:9px}
+@media(max-width:650px){html:lang(zh-CN) textarea{font-size:19px}}

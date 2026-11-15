@@ -1,0 +1,621 @@
+.gacha-studio-shell {
+  background: #edf1fc url("/assets/gacha/star-diamond-photo.webp") center
+    top/100% auto no-repeat;
+  position: relative;
+  isolation: isolate;
+}
+.gacha-studio-shell:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, #edf1fc, transparent 35%);
+  pointer-events: none;
+}
+.gacha-studio-shell .site-header {
+  background: #fffdf83d;
+  border-color: #fff9;
+  backdrop-filter: blur(7px);
+}
+.gacha-studio-shell .module-nav {
+  color: #6d83a8;
+  text-shadow: 0 1px white;
+}
+.gacha-studio-shell .site-footer {
+  background: #fffdf84d;
+}
+.capsule-studio {
+  max-width: 1180px;
+  margin: auto;
+  padding: 14px 5% 45px;
+}
+.capsule-heading {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.capsule-studio .capsule-heading h1 {
+  font:
+    clamp(76px, 10vw, 134px)/1.15 "Great Vibes Local",
+    cursive;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  color: #fff9ff;
+  text-shadow:
+    1px 2px #92a5c4,
+    0 3px 18px #fff8;
+  margin: 0;
+  padding: 10px 0 5px;
+}
+.capsule-studio .capsule-heading h1 em {
+  color: #e6d5f2;
+  text-shadow:
+    1px 2px #a693bc,
+    0 0 15px #fff8;
+}
+.capsule-scene {
+  display: grid;
+  grid-template-columns: minmax(0, 510px) minmax(0, 330px);
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  min-height: 650px;
+}
+.capsule-machine {
+  position: relative;
+  width: 100%;
+  max-width: 510px;
+  aspect-ratio: 2/3;
+  isolation: isolate;
+  filter: drop-shadow(0 18px 17px #63779c25);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.capsule-machine-render {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+}
+.capsule-hopper {
+  position: absolute;
+  inset: 0;
+  clip-path: ellipse(43% 25.3% at 50% 32%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hopper-capsule {
+  position: absolute;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(var(--capsule-angle));
+  transform-origin: 50% 65%;
+  filter: drop-shadow(1px 5px 4px #7186a51f);
+}
+.hopper-capsule img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.hopper-capsule:nth-child(-n + 3) {
+  filter: brightness(0.97) drop-shadow(0 3px 4px #7186a524);
+}
+.hopper-capsule.is-mixing {
+  animation: capsuleTumble 0.22s ease-in-out 4 alternate;
+  animation-delay: var(--capsule-delay);
+}
+.capsule-front-glass {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.capsule-turn-knob {
+  position: absolute;
+  aspect-ratio: 1;
+  z-index: 12;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+  overflow: visible;
+  isolation: isolate;
+}
+.capsule-turn-knob svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+.capsule-turn-knob:disabled {
+  opacity: 1;
+  cursor: wait;
+}
+.capsule-turn-knob:focus-visible {
+  outline: 3px solid #fff8ce;
+  outline-offset: 9px;
+}
+.capsule-turn-knob.is-ready:before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 2px solid #fffce6;
+  border-radius: 50%;
+  box-shadow:
+    0 0 12px 4px #fff6d5b3,
+    0 0 25px 8px #eacaff80,
+    inset 0 0 10px #fff9d6;
+  animation: capsuleKnobHalo 2s ease-in-out infinite;
+  pointer-events: none;
+}
+.capsule-machine.mixing .capsule-turn-knob svg {
+  animation: capsuleKnobTurn 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+.capsule-knob-hint {
+  position: absolute;
+  top: 69%;
+  left: 64%;
+  width: 30px;
+  height: 35px;
+  z-index: 13;
+  rotate: 90deg;
+  filter: drop-shadow(0 0 5px white);
+  animation: capsuleHintNudge 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+.capsule-prize-chute {
+  position: absolute;
+  top: 78.4%;
+  left: 34%;
+  width: 32%;
+  height: 17.5%;
+  overflow: hidden;
+  z-index: 13;
+  pointer-events: none;
+}
+.capsule-prize-chute > img {
+  width: 75%;
+  height: auto;
+  position: absolute;
+  left: 12.5%;
+  bottom: 0;
+  animation: capsuleDropIn 0.7s cubic-bezier(0.23, 0.75, 0.34, 1) both;
+  filter: drop-shadow(0 5px 3px #54688033);
+}
+.capsule-prize-chute.opening > img {
+  animation: capsuleAutoOpen 0.65s ease-in both;
+}
+.capsule-open-glow {
+  position: absolute;
+  inset: 15% 2% -25%;
+  background: radial-gradient(
+    ellipse,
+    #fff3c9eb,
+    #f9dcff91 30%,
+    transparent 65%
+  );
+  opacity: 0;
+}
+.opening .capsule-open-glow {
+  animation: capsuleRevealGlow 0.65s ease-out both;
+}
+.capsule-reveal-area {
+  position: relative;
+  min-width: 0;
+  z-index: 1;
+  align-self: end;
+  margin-bottom: 80px;
+}
+.capsule-prize-card {
+  border: 1px solid #fff;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #fffdf8cf, #eaf4ffc2 55%, #f1e3f4b0);
+  box-shadow:
+    inset 1px 2px 5px white,
+    0 5px 0 #c6c7e74d,
+    0 15px 40px #7184a01a;
+  backdrop-filter: blur(10px);
+  padding: 10px 22px 22px;
+  text-align: center;
+  animation: capsulePrizeIn 0.5s cubic-bezier(0.16, 0.8, 0.28, 1.15) both;
+}
+.capsule-prize-art {
+  display: block;
+  width: min(100%, 250px);
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin: -38px auto 0;
+  filter: drop-shadow(0 9px 8px #8694b426);
+}
+.capsule-prize-card h2 {
+  font: 27px/1.5 var(--hand-font);
+  font-weight: 400;
+  color: #6b7fa6;
+  margin: 6px 0 8px;
+}
+.capsule-prize-card > p {
+  font: 19px/1.8 var(--hand-font);
+  color: #8693b0;
+}
+.capsule-star-earned {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: 14px var(--hand-font);
+  color: #a08dac;
+  border-top: 1px dashed #d5dbea;
+  margin: 17px 6px 0;
+  padding-top: 13px;
+}
+.capsule-prize-card > .photo-placeholder {
+  margin-top: 12px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@keyframes capsuleTumble {
+  from {
+    transform: translate(-50%, -50%) rotate(calc(var(--capsule-angle) - 8deg));
+  }
+  to {
+    transform: translate(-50%, calc(-50% - 6px))
+      rotate(calc(var(--capsule-angle) + 8deg));
+  }
+}
+@keyframes capsuleKnobTurn {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+@keyframes capsuleKnobHalo {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+@keyframes capsuleHintNudge {
+  0%,
+  100% {
+    translate: 0 0;
+    opacity: 0.7;
+  }
+  50% {
+    translate: -6px 0;
+    opacity: 1;
+  }
+}
+@keyframes capsuleDropIn {
+  0% {
+    transform: translateY(-150%) rotate(-25deg);
+  }
+  65% {
+    transform: translateY(3%) rotate(8deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes capsuleAutoOpen {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-5%) scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10%) scale(1.3);
+    opacity: 0;
+  }
+}
+@keyframes capsuleRevealGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+@keyframes capsulePrizeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 900px) {
+  .capsule-studio {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .capsule-scene {
+    grid-template-columns: minmax(0, 440px) minmax(0, 280px);
+    gap: 4px;
+    min-height: 530px;
+  }
+  .capsule-reveal-area {
+    margin-bottom: 45px;
+  }
+  .capsule-prize-card {
+    padding: 8px 16px 18px;
+  }
+  .capsule-prize-art {
+    width: 210px;
+  }
+  .capsule-prize-card h2 {
+    font-size: 25px;
+  }
+  .capsule-prize-card > p {
+    font-size: 18px;
+  }
+}
+@media (max-width: 620px) {
+  .capsule-studio {
+    padding: 8px 5% 38px;
+  }
+  .capsule-studio .capsule-heading h1 {
+    font-size: clamp(65px, 15.5vw, 90px);
+    line-height: 1.1;
+    padding: 8px 0 6px;
+    letter-spacing: -0.6px;
+  }
+  .capsule-scene {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 0;
+    align-items: center;
+  }
+  .capsule-machine {
+    max-width: 430px;
+    width: min(108%, 430px);
+    flex-shrink: 0;
+  }
+  .capsule-reveal-area {
+    align-self: center;
+    width: 100%;
+    max-width: 330px;
+    margin: -4px auto 0;
+  }
+  .capsule-prize-art {
+    width: 210px;
+    margin-top: -28px;
+  }
+  .capsule-prize-card {
+    margin-top: 5px;
+    padding-bottom: 20px;
+  }
+  .capsule-prize-card h2 {
+    font-size: 25px;
+  }
+  .capsule-knob-hint {
+    width: 25px;
+    height: 29px;
+  }
+  .capsule-turn-knob.is-ready:before {
+    inset: -5px;
+    border-width: 1.5px;
+  }
+  .gacha-studio-shell {
+    background-size: auto min(1150px, 150svh);
+    background-position: 59% top;
+  }
+  .capsule-prize-card > p {
+    font-size: 18px;
+  }
+  .capsule-star-earned {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hopper-capsule.is-mixing,
+  .capsule-machine.mixing .capsule-turn-knob svg,
+  .capsule-turn-knob.is-ready:before,
+  .capsule-knob-hint,
+  .capsule-prize-chute > img,
+  .capsule-prize-chute.opening > img,
+  .opening .capsule-open-glow,
+  .capsule-prize-card {
+    animation: none !important;
+  }
+  .capsule-prize-chute.opening > img {
+    opacity: 0;
+  }
+  .opening .capsule-open-glow {
+    opacity: 0.6;
+  }
+}
+
+.capsule-prize-chute.opening > .capsule-prize-whole {
+  animation: none;
+  opacity: 0;
+}
+.capsule-prize-chute > .capsule-half {
+  animation: none;
+}
+.capsule-prize-chute.opening > .capsule-lid {
+  clip-path: inset(0 0 48% 0);
+  animation: capsuleLidLift 0.65s ease-out both;
+}
+.capsule-prize-chute.opening > .capsule-bottom {
+  clip-path: inset(48% 0 0 0);
+  animation: capsuleBottomRelease 0.65s ease-out both;
+}
+@keyframes capsuleLidLift {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(8%, -48%) rotate(-18deg);
+    opacity: 0;
+  }
+}
+@keyframes capsuleBottomRelease {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(13%) scale(1.1);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capsule-prize-chute.opening > .capsule-half {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Silver collage lettering stays legible against paper stars and the new portrait. */
+.capsule-studio .capsule-heading h1 {
+  -webkit-text-stroke: 0.45px #a2b2cb;
+  text-shadow:
+    1px 2px #7c93b5,
+    0 0 15px #fff9;
+}
+.capsule-studio .capsule-heading h1 em {
+  color: #f0e2f5;
+  -webkit-text-stroke: 0.4px #a99bc0;
+  text-shadow:
+    1px 2px #8f85aa,
+    0 0 15px #fff9;
+}
+/* A left-aligned, thick dimensional wordmark leaves the portrait on the right unobstructed. */
+.capsule-studio .capsule-heading{text-align:left;padding:4px 0 12px;margin:0;pointer-events:none}
+.capsule-studio .capsule-heading h1{display:block;width:45%;max-width:440px;font-family:'DM Sans',sans-serif;font-size:clamp(38px,6.1vw,75px);font-weight:900;font-style:italic;line-height:1.02;letter-spacing:-2px;color:#618cc0;-webkit-text-stroke:1px #ecf7ff;text-shadow:1px 1px #8eb2d4,2px 2px #8eb2d4,3px 3px #7291bb,4px 4px #7291bb,5px 5px #56719d,0 8px 10px #6c87ac2b;padding:4px 0 8px;margin:0}
+.capsule-studio .capsule-heading h1>span,.capsule-studio .capsule-heading h1 em{display:block;font:inherit;letter-spacing:inherit}
+.capsule-studio .capsule-heading h1 em{color:#ce91ba;-webkit-text-stroke:1px #fff4fb;text-shadow:1px 1px #c3a2c7,2px 2px #c3a2c7,3px 3px #a182b1,4px 4px #a182b1,5px 5px #826a9b,0 8px 10px #89719b2b;margin-top:3px}
+/* This is a memory photo mount. Capsule designs stay on the machine, not in the reveal content. */
+.capsule-prize-card.memory-photo-card{padding:17px 17px 31px;border-radius:8px 8px 18px 18px;background:linear-gradient(135deg,#fffdf8f5,#f0f7ffed);border:1px solid white;box-shadow:3px 5px 0 #ccd8e666,0 10px 25px #7890ad26;rotate:3deg}
+.memory-photo-window{width:100%;aspect-ratio:3/4;background:#e4edf5;border:1px solid #fff;overflow:hidden;border-radius:3px;box-shadow:inset 0 0 0 1px #d3dfec}
+.memory-photo-window>img{width:100%;height:100%;object-fit:contain;display:block;background:#f4f5fa}
+.memory-photo-slot{position:relative;width:100%;height:100%;background:linear-gradient(145deg,#e6eff9,#f9fafc 60%,#e9e3f2)}
+.memory-photo-slot>span{position:absolute;width:22px;height:22px;border-color:#c2d1e0;border-style:solid;border-width:0;opacity:.7}
+.memory-photo-slot>span:nth-child(1){left:13px;top:13px;border-top-width:1px;border-left-width:1px}.memory-photo-slot>span:nth-child(2){right:13px;top:13px;border-top-width:1px;border-right-width:1px}.memory-photo-slot>span:nth-child(3){left:13px;bottom:13px;border-bottom-width:1px;border-left-width:1px}.memory-photo-slot>span:nth-child(4){right:13px;bottom:13px;border-bottom-width:1px;border-right-width:1px}
+.capsule-prize-card .memory-photo-caption{font:20px/1.8 var(--hand-font);color:#657f9e;margin:17px 1px 0;white-space:pre-wrap;rotate:-1deg}
+/* Larger sculpted chevrons point directly towards the illuminated chrome knob. */
+.capsule-knob-hint{left:61.5%;top:70.9%;width:72px;height:72px;rotate:0;transform:translateY(-50%);filter:drop-shadow(1px 1px 1px #886da2) drop-shadow(0 0 6px #fff4c7) drop-shadow(0 0 13px #dba3e4);animation:capsuleHintNudge 1.6s ease-in-out infinite}
+.capsule-knob-hint>.cut-chevron{transform:rotate(90deg);position:relative;z-index:1}
+@keyframes capsuleHintNudge{0%,100%{transform:translate(0,-50%);opacity:.85}50%{transform:translate(-8px,-50%);opacity:1}}
+@media(max-width:620px){.capsule-studio .capsule-heading{padding:8px 0 10px}.capsule-studio .capsule-heading h1{width:46%;font-size:clamp(31px,8.1vw,48px);line-height:1.06;letter-spacing:-1.5px;-webkit-text-stroke:.8px #ecf7ff}.capsule-studio .capsule-heading h1 em{-webkit-text-stroke:.8px #fff4fb}.capsule-knob-hint{width:60px;height:60px;left:61%;top:70.9%}.capsule-prize-card.memory-photo-card{padding:15px 15px 27px;max-width:285px;margin:8px auto 0}.capsule-prize-card .memory-photo-caption{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.capsule-knob-hint{animation:none;transform:translateY(-50%)}}
+
+/* The sculpted enamel wordmark occupies the left column, away from the portrait. */
+.capsule-studio .capsule-heading h1 {
+  width: 49%;
+  max-width: 495px;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+.capsule-heading h1 > img { display:block; width:100%; height:auto; filter:drop-shadow(0 6px 4px #6884a538); }
+.capsule-prize-card.memory-photo-card { position:relative; min-width:0; }
+.memory-photo-window.memory-photo-button {
+  display:block; padding:0; aspect-ratio:auto; cursor:zoom-in;
+  background:#f5f7fb; transform:none;
+}
+.memory-photo-button > img { display:block; width:100%; height:auto; max-height:65svh; object-fit:contain; }
+.memory-photo-button:focus-visible, .memory-one-more:focus-visible, .memory-zoom-close:focus-visible { outline:3px solid #6b90b9; outline-offset:4px; }
+.capsule-prize-card .memory-photo-caption { overflow-wrap:anywhere; margin:18px 0; }
+.memory-one-more {
+  display:block; margin:8px auto 0; padding:12px 23px; min-height:44px;
+  border:1px solid #fff; border-radius:30px; color:#516d91;
+  background:linear-gradient(140deg,#fffdf5,#e3edfd 65%,#f3dfea);
+  box-shadow:inset 0 2px 3px #fff,0 3px 8px #748bad26;
+  font:700 13px/1.2 'DM Sans',sans-serif; letter-spacing:1.1px; cursor:pointer;
+}
+.memory-capsule-mini { position:absolute; z-index:2; width:64px; height:64px; object-fit:contain; pointer-events:none; filter:drop-shadow(0 4px 3px #7893b749); }
+.memory-capsule-mini.edge-0 { top:-36px; left:-14px; rotate:-15deg; }
+.memory-capsule-mini.edge-1 { top:-36px; right:-14px; rotate:16deg; }
+.memory-capsule-mini.edge-2 { bottom:-32px; left:-14px; rotate:-13deg; }
+.memory-capsule-mini.edge-3 { bottom:-32px; right:-14px; rotate:14deg; }
+.memory-photo-zoom {
+  position:fixed; inset:0; margin:auto; padding:52px 14px 14px;
+  width:min(96vw,1400px); height:94svh; max-width:96vw; max-height:94svh;
+  border:1px solid #fff; border-radius:18px;
+  background:linear-gradient(145deg,#eff7fff7,#fffbf3f7 70%,#f9e9f5f7);
+  box-shadow:0 20px 80px #42597466; overflow:hidden;
+}
+.memory-photo-zoom::backdrop { background:#6887ad99; backdrop-filter:blur(9px); }
+.memory-photo-zoom > img { width:100%; height:100%; display:block; object-fit:contain; }
+.memory-zoom-close {
+  position:absolute; top:5px; right:10px; width:44px; height:44px;
+  border:0; border-radius:50%; background:#fffc; color:#536e91;
+  font:30px/1 sans-serif; cursor:pointer;
+}
+@media(max-width:620px) {
+  .capsule-studio .capsule-heading h1 { width:51%; max-width:310px; }
+  .capsule-prize-card.memory-photo-card { width:calc(100% - 20px); max-width:360px; rotate:1deg; margin:20px auto 36px; }
+  .memory-capsule-mini { width:56px; height:56px; }
+  .capsule-prize-card .memory-photo-caption { font-size:19px; line-height:1.65; }
+}
+
+/* Content-only fortune edition: keep the title footprint and machine geometry. */
+.capsule-studio .capsule-heading h1.fortune-heading{aspect-ratio:1499/1049;display:flex;flex-direction:column;justify-content:center;font-size:clamp(25px,4.3vw,53px);line-height:1.03;letter-spacing:-1px;color:#638bb8;-webkit-text-stroke:.7px #fff5fb;text-shadow:1px 2px #aac0da,2px 3px #7e92b8,0 6px 8px #7e92b833}
+.capsule-heading .fortune-heading small{font:400 clamp(10px,1.5vw,15px)/1.5 'DM Sans',sans-serif;letter-spacing:0;color:#526882;text-shadow:none;-webkit-text-stroke:0;margin-top:10px}
+.capsule-prize-card.fortune-card{position:relative;min-width:0;height:auto;overflow:visible;rotate:1deg;padding:26px 20px 20px;border-radius:8px 8px 18px 18px;background:linear-gradient(135deg,#fffdf8fa,#eef5fffa);box-shadow:3px 5px 0 #ccd8e666,0 10px 25px #7890ad26;overflow-wrap:anywhere}
+.fortune-kicker{font:700 11px/1.5 'DM Sans',sans-serif;letter-spacing:2px;color:#6b7394}
+.fortune-icon{display:block;font-size:32px;line-height:1.5;margin:9px 0}
+.capsule-prize-card.fortune-card h2{font:700 21px/1.5 'DM Sans',sans-serif;color:#536887;margin:6px 0 16px;word-break:normal}
+.capsule-prize-card.fortune-card .fortune-message{font:400 16px/1.9 'DM Sans',sans-serif;color:#465a73;margin:0 0 20px;white-space:normal;word-break:normal}
+.fortune-lucky{border-block:1px dashed #c4cfe0;padding:12px 0;margin:0 0 16px;font:14px/1.6 'DM Sans',sans-serif;color:#536887}
+.fortune-lucky>div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px}.fortune-lucky dt{font-size:11px;letter-spacing:.3px}.fortune-lucky dd{margin:0;font-weight:700}
+.fortune-disclaimer{display:block;margin-top:17px;font:10px/1.7 'DM Sans',sans-serif;color:#68768a}
+@media(max-width:620px){.capsule-studio .capsule-heading h1.fortune-heading{font-size:clamp(21px,5.9vw,37px)}.capsule-heading .fortune-heading small{font-size:10px;margin-top:6px}.capsule-prize-card.fortune-card{width:calc(100% - 20px);margin:20px auto 36px;padding:24px 18px 20px}.capsule-prize-card.fortune-card .fortune-message{font-size:16px;line-height:1.85}}
+/* A layered pearl-blue paper keepsake; only result-card styles are changed. */
+.capsule-prize-card.fortune-card.fortune-collage-card{isolation:isolate;padding:18px 20px 21px;border:1px solid #fff;border-radius:23px 9px 24px 10px;background:repeating-linear-gradient(0deg,#fff0 0 3px,#a9badb08 3px 4px),linear-gradient(140deg,#fffdf9 10%,#f3f6ff 53%,#eeeaf8);box-shadow:inset 0 0 0 6px #fff8,inset 0 0 0 7px #bbcae05c,5px 7px 0 #b8c9e044,0 12px 27px #7184a02b;rotate:-1deg;overflow:visible;height:auto}.fortune-collage-card:before{content:'';position:absolute;inset:9px -7px -7px 6px;z-index:-1;border:1px solid #fff;border-radius:15px;background:linear-gradient(145deg,#dcebf6,#e3dbee);rotate:3deg;box-shadow:2px 4px 8px #7e8ca329}.fortune-collage-card:after{content:'';position:absolute;z-index:-1;inset:9px;border:1px solid #b4c5df88;border-radius:16px 5px 17px 5px;pointer-events:none}.fortune-paper-tape{position:absolute;left:23px;top:-12px;width:65px;height:24px;background:repeating-linear-gradient(105deg,#dae8f3aa 0 5px,#f6fbffbb 5px 9px);border:1px solid #f5f9ffa6;rotate:-13deg;box-shadow:0 2px 3px #8196b416;clip-path:polygon(0 6%,7% 0,14% 7%,21% 0,28% 6%,35% 0,42% 6%,49% 0,56% 6%,63% 0,70% 6%,77% 0,84% 6%,91% 0,100% 6%,100% 94%,93% 100%,86% 94%,79% 100%,72% 94%,65% 100%,58% 94%,51% 100%,44% 94%,37% 100%,30% 94%,23% 100%,16% 94%,9% 100%,0 94%)}.fortune-collage-card .fortune-kicker{margin:-6px -8px 1px;line-height:0}.fortune-kicker>img{display:block;width:100%;height:auto;max-height:106px;object-fit:contain;filter:drop-shadow(0 3px 3px #91a5c62b)}.fortune-sticker-seal{position:relative;width:74px;height:74px;display:grid;place-items:center;margin:0 auto 12px;border:1px solid #fff;border-radius:50%;background:radial-gradient(circle at 30% 20%,#fff,#dce8f9 65%,#dbd1e8);box-shadow:inset 0 0 0 4px #ffffffe6,inset 0 0 0 5px #cad4e4,0 4px 7px #8fa2be24;color:#8794b6}.fortune-sticker-seal>img{display:block;width:66px;height:66px;object-fit:contain;filter:drop-shadow(0 3px 2px #8696b53d);rotate:-7deg}.fortune-sticker-seal>.fortune-daegal-crown{position:absolute;top:-5px;right:-4px;rotate:18deg;color:#aa91bc;fill:#fff0c6;filter:drop-shadow(0 1px 1px #fff)}.capsule-prize-card.fortune-collage-card h2{margin:0 0 8px;color:#596b91;font:700 21px/1.5 'DM Sans',sans-serif;text-shadow:0 1px #fff;letter-spacing:.3px}.fortune-ornament-rule{display:flex;gap:8px;align-items:center;justify-content:center;color:#af9dc1;font-size:15px;margin:0 10px 10px}.fortune-ornament-rule:before,.fortune-ornament-rule:after{content:'';height:1px;flex:1;max-width:58px;background:linear-gradient(90deg,transparent,#b6c4d8)}.fortune-ornament-rule:after{transform:scaleX(-1)}.capsule-prize-card.fortune-collage-card .fortune-message{font-size:16px;line-height:1.8;color:#526581;margin:0 0 17px;padding:0 2px}.fortune-collage-card .fortune-lucky{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:9px;margin:0 0 16px;border:0;padding:0;text-align:center}.fortune-collage-card .fortune-lucky>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:76px;padding:9px 6px;border:1px solid #c1cde185;border-radius:12px 4px 12px 4px;background:linear-gradient(145deg,#fafffff2,#dde8f7aa);box-shadow:inset 0 0 0 3px #fff8,0 3px 0 #c6d1e633}.fortune-collage-card .fortune-lucky>.fortune-number-ticket{background:linear-gradient(145deg,#fcf9ff,#e7dff3aa);border-color:#c8bddc9c;rotate:2deg}.fortune-collage-card .fortune-lucky dt{font:10px/1.3 'DM Sans',sans-serif;letter-spacing:.4px;color:#8b94ad}.fortune-collage-card .fortune-lucky dd{font:700 14px/1.4 'DM Sans',sans-serif;color:#667a9e}.fortune-collage-card .fortune-number-ticket dd{font:italic 700 25px/1.1 Georgia,serif;color:#8d78a6;text-shadow:0 1px #fff}.fortune-collage-card .memory-one-more{position:relative;min-width:174px;padding:12px 18px;border:1px solid white;border-radius:23px 7px 23px 7px;background:linear-gradient(155deg,#fbfdff,#dce9fa 45%,#e7d9ed);box-shadow:inset 0 2px 3px white,inset 0 -2px 2px #a6b5d344,0 4px 0 #c2cce155,0 6px 9px #8d9bbb24;color:#667b9f;font-size:12px}.fortune-collage-card .memory-one-more>span{color:#a48ab4;margin-left:7px}.fortune-collage-card .fortune-disclaimer{margin:17px 3px 0;font-size:10px;line-height:1.65;color:#8a93a9}.fortune-pearl-corner{position:absolute;left:-18px;bottom:23px;width:43px;height:43px;object-fit:contain;rotate:-17deg;pointer-events:none;filter:drop-shadow(0 3px 3px #899bb43b)}.fortune-collage-card>.memory-capsule-mini{width:51px;height:51px;z-index:2}.fortune-collage-card>.memory-capsule-mini.edge-0,.fortune-collage-card>.memory-capsule-mini.edge-1{top:-29px}.fortune-collage-card>.memory-capsule-mini.edge-2,.fortune-collage-card>.memory-capsule-mini.edge-3{bottom:-27px}@media(max-width:620px){.capsule-prize-card.fortune-card.fortune-collage-card{width:calc(100% - 24px);max-width:350px;padding:18px 23px 22px;margin:24px auto 36px;rotate:0deg}.fortune-collage-card .fortune-kicker>img{max-height:115px}.capsule-prize-card.fortune-collage-card .fortune-message{font-size:16px;line-height:1.8}.fortune-collage-card .fortune-disclaimer{font-size:10px}.fortune-pearl-corner{left:-13px;width:38px;height:38px}}
+.fortune-collage-card:after{background:repeating-linear-gradient(0deg,#fff0 0 3px,#a9badb06 3px 4px),linear-gradient(135deg,#fffefa,#f4f7ff 65%,#f0eaf8);box-shadow:inset 0 1px 3px #fff}
+/* Reference stationery: flat printed paper, handwritten notes and photo collage. */
+.capsule-prize-card.fortune-card.fortune-stationery{--note-ink:#6a4b42;--note-accent:#c88297;--note-edge:#f6dce5;position:relative;isolation:isolate;height:auto;overflow:visible;padding:20px 15px 16px;border:0;border-radius:1px;background-color:var(--note-edge);background-image:radial-gradient(#b9868e55 .65px,transparent .9px);background-size:9px 11px;box-shadow:2px 5px 9px #75675b24;rotate:-2deg;color:var(--note-ink);text-align:left;backdrop-filter:none;animation:capsulePrizeIn .5s ease both}.fortune-stationery:before{content:'';position:absolute;z-index:-1;inset:5px -5px -5px 4px;background:#f7f4e9;border:1px solid #c8baa955;rotate:1.5deg;box-shadow:0 1px 2px #84736118}.fortune-stationery:after{display:none}.fortune-note-heading{position:relative;z-index:2;padding:0 5px 7px;rotate:-3deg;color:var(--note-ink);margin-bottom:8px}.fortune-note-heading>span{display:block;margin:0 0 0 5px;font:600 11px/1.2 Georgia,serif;letter-spacing:3px}.fortune-note-heading>strong{display:block;font:italic 900 clamp(38px,4.8vw,49px)/1.05 Georgia,serif;letter-spacing:-2px;color:#e7a8b9;-webkit-text-stroke:.65px var(--note-ink);paint-order:stroke fill;text-shadow:1px 1px #fff7e8,2px 2px #fff7e8,3px 3px var(--note-ink)}.fortune-heading-heart{position:absolute;right:5px;top:22px;rotate:15deg;color:var(--note-accent);fill:#fff9f4}.fortune-note-sheet{position:relative;padding:27px 14px 12px;background:#fbf8ee;border-radius:45% 40% 5px 5px / 9% 8% 1px 1px;box-shadow:0 1px 1px #baa58e22}.capsule-prize-card.fortune-card.fortune-stationery h2{position:relative;z-index:1;color:var(--note-ink);font:700 22px/1.45 var(--hand-font);letter-spacing:0;margin:0 0 15px;text-align:center;text-shadow:none;word-break:normal}.fortune-note-message{position:relative;font:400 19px/1.7 var(--hand-font);color:var(--note-ink);margin:0 0 13px;white-space:normal;overflow-wrap:anywhere;word-break:normal;text-align:left}.fortune-note-bottom{position:relative;display:flex;justify-content:space-between;align-items:center;gap:9px;min-height:117px;margin-top:5px}.fortune-note-luck{flex:1;min-width:0;margin:0;padding:0;color:var(--note-ink)}.fortune-note-luck>div{margin:0 0 12px}.fortune-note-luck dt{font:italic 11px/1.4 Georgia,serif;letter-spacing:0;color:var(--note-ink);opacity:.75}.fortune-note-luck dd{font:400 20px/1.4 var(--hand-font);margin:2px 0 0;overflow-wrap:anywhere}.fortune-note-luck>div:last-child dd{font:italic 700 29px/1.1 Georgia,serif;color:var(--note-accent);text-decoration:underline;text-decoration-style:wavy;text-decoration-thickness:1px;text-underline-offset:4px}.fortune-note-photo{position:relative;flex:0 0 76px;align-self:center;width:76px;margin:3px -7px 0 0;padding:4px 4px 11px;background:#fffdf8;box-shadow:1px 3px 4px #76675a33;rotate:7deg}.fortune-note-photo:before{content:'';position:absolute;top:-7px;left:18px;width:35px;height:15px;background:#e6b7c18f;rotate:-9deg}.fortune-note-photo>img{display:block;width:100%;height:84px;object-fit:cover;object-position:50% 24%;filter:saturate(.65) contrast(.96)}.fortune-note-photo>figcaption{margin-top:4px;text-align:center;font:italic 10px/1 Georgia,serif;color:var(--note-ink)}.fortune-note-scribble{position:absolute;top:5px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;color:var(--note-accent);pointer-events:none}.fortune-note-scribble>svg:nth-child(2){margin-left:auto;margin-right:10px;rotate:14deg}.fortune-note-scribble>span{font-size:14px}.fortune-note-doodles{display:flex;align-items:center;justify-content:space-between;height:32px;padding:0 12px 0 2px;color:var(--note-ink);opacity:.7}.fortune-note-doodles>span{font:22px/1 var(--hand-font);color:var(--note-accent);rotate:15deg}.fortune-stationery .memory-one-more.fortune-note-again{position:relative;display:block;min-height:43px;width:auto;min-width:0;margin:14px auto 0;padding:8px 19px;background:#fffaf1;border:1px solid var(--note-ink);border-radius:2px;box-shadow:2px 2px var(--note-accent);font:italic 700 13px/1.4 Georgia,serif;letter-spacing:.5px;color:var(--note-ink);rotate:-2deg}.fortune-note-again>span{margin-left:9px}.fortune-note-disclaimer{display:block;margin-top:13px;padding:0 4px;font:10px/1.6 'DM Sans',sans-serif;color:var(--note-ink);opacity:.72;text-align:center}.fortune-note-bow{position:absolute;z-index:3;right:-9px;top:-9px;width:61px;height:49px;color:var(--note-ink);rotate:17deg;pointer-events:none}.fortune-note-bow>svg{width:100%;height:100%;filter:drop-shadow(0 1px #fff9)}
+/* Chocolate-drip letter paper, as in the first reference. */
+.fortune-theme-cookie{--note-ink:#674638;--note-accent:#c68991;--note-edge:#f9eaf2!important;padding-top:31px!important;padding-bottom:29px!important}.fortune-theme-cookie .fortune-note-trim{position:absolute;top:0;left:0;right:0;height:27px;background:#674638;clip-path:polygon(0 0,100% 0,100% 70%,94% 68%,92% 100%,89% 100%,86% 61%,73% 73%,65% 65%,61% 100%,57% 100%,54% 67%,42% 80%,30% 65%,23% 88%,17% 70%,6% 82%,0 62%)}.fortune-theme-cookie:before{background:repeating-conic-gradient(#684939 0 25%,#fbe5ed 0 50%) 0 0/24px 24px;inset:6px -5px -6px 5px}.fortune-theme-cookie .fortune-note-sheet{background-color:#f8f5e9;background-image:repeating-linear-gradient(0deg,transparent 0 30px,#a58c783b 30px 31px);border-radius:40% 38% 4px 5px / 8% 10% 1px 1px}.fortune-theme-cookie .fortune-note-photo{border-radius:50% 50% 4px 4px;rotate:6deg}.fortune-theme-cookie .fortune-note-photo>img{border-radius:45% 45% 2px 2px}.fortune-theme-cookie .fortune-note-bow{top:20px;right:-9px;width:40px;rotate:-17deg}
+/* Soft hand-drawn lucky-note paper, as in the second reference. */
+.fortune-theme-pink{--note-ink:#665b58;--note-accent:#bf8c9a;--note-edge:#efd1db}.fortune-theme-pink .fortune-note-heading>strong{-webkit-text-stroke:0;color:#9d6d7d;text-shadow:none;font-family:'Great Vibes Local',Georgia,serif;font-size:48px;font-weight:600;letter-spacing:0}.fortune-theme-pink .fortune-note-sheet{background:#fffdf5;border:1px solid #c4b6a587;border-radius:38px 30px 30px 25px;box-shadow:none}.fortune-theme-pink .fortune-note-photo{rotate:-7deg}.fortune-theme-pink .fortune-note-bow{color:#a98892;top:-3px}.fortune-theme-pink .fortune-heading-heart{fill:none}.fortune-theme-pink .fortune-note-photo:before{background:#e6bcc4b3}
+/* Ice-blue gingham and ribbon photo collage, as in the third reference. */
+.fortune-theme-blue{--note-ink:#5b6c7c;--note-accent:#89abc1;--note-edge:#e8f3f8;background-image:linear-gradient(90deg,#abcddd33 50%,transparent 50%),linear-gradient(#abcddd33 50%,transparent 50%)!important;background-size:18px 18px!important}.fortune-theme-blue .fortune-note-heading>strong{color:#a8c9dc;-webkit-text-stroke:.6px #6d8fa4;text-shadow:1px 1px #fff9e9,2px 2px #fff9e9;letter-spacing:-1.6px}.fortune-theme-blue .fortune-note-sheet{background:#fffefa;border:1px dashed #a3bdcb;border-radius:4px;padding-top:29px;outline:3px solid #fafdff9e;outline-offset:3px}.fortune-theme-blue .fortune-note-photo{border-radius:42% 42% 2px 2px;rotate:5deg}.fortune-theme-blue .fortune-note-photo>img{border-radius:43% 43% 0 0}.fortune-theme-blue .fortune-note-photo:before{background:#b7d4e2a1}.fortune-theme-blue .fortune-note-bow{width:74px;height:59px;right:-11px;top:-8px;color:#9bb8cc}.fortune-theme-blue .fortune-heading-heart{right:9px;top:31px;fill:none}.fortune-theme-blue .fortune-note-again{border-style:dashed!important;box-shadow:2px 2px #bdcfdb!important}
+@media(max-width:620px){.capsule-prize-card.fortune-card.fortune-stationery{width:calc(100% - 28px);max-width:350px;padding:19px 18px 17px;margin:25px auto 36px;rotate:-1deg}.fortune-note-heading>strong{font-size:49px}.fortune-theme-pink .fortune-note-heading>strong{font-size:54px}.fortune-note-message{font-size:20px;line-height:1.65}.capsule-prize-card.fortune-card.fortune-stationery h2{font-size:23px}.fortune-note-sheet{padding:28px 17px 13px}.fortune-note-photo{flex-basis:83px;width:83px}.fortune-note-photo>img{height:94px}.fortune-note-luck dd{font-size:21px}.fortune-theme-blue .fortune-note-sheet{padding-top:29px}}
+.capsule-prize-card.fortune-stationery.fortune-theme-cookie{--note-ink:#674638;--note-accent:#c68991;--note-edge:#f9eaf2}.capsule-prize-card.fortune-stationery.fortune-theme-pink{--note-ink:#665b58;--note-accent:#bf8c9a;--note-edge:#efd1db}.capsule-prize-card.fortune-stationery.fortune-theme-blue{--note-ink:#5b6c7c;--note-accent:#89abc1;--note-edge:#e8f3f8}
+.fortune-stationery:before{display:none}.fortune-stationery.fortune-theme-cookie:after{content:'';display:block;position:absolute;z-index:0;inset:auto 0 0;height:19px;border:0;border-radius:0;background:repeating-conic-gradient(#684939 0 25%,#fbe5ed 0 50%) 0 0/22px 22px;pointer-events:none;box-shadow:none}

@@ -1,0 +1,1 @@
+export default function CrosswordBackdrop(){return <div className="crossword-page-art" aria-hidden="true"><img className="crossword-full-photo" src="/assets/crossword/chenle-lace-collage.webp" alt="" width="1024" height="1536"/></div>}

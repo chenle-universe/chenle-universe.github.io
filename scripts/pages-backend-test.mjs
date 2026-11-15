@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import {readFileSync} from 'node:fs';
+import worker from '../worker/index.mjs';
+const sql=new DatabaseSync(':memory:');for(const p of ['0000_fan_wishes.sql','0001_chenle_notes.sql','0003_note_visibility.sql'])sql.exec(readFileSync(`drizzle/${p}`,'utf8'));
+const DB={prepare(query){let args=[];return {bind(...values){args=values;return this},async all(){return {results:sql.prepare(query).all(...args)}},async run(){return {meta:{changes:sql.prepare(query).run(...args).changes}}}}}};
+const origin='https://veronica-j-118.github.io',api='https://notes.example',visitor=crypto.randomUUID(),env={DB,NOTE_ALLOWED_ORIGIN:origin};
+const call=(path,method='GET',data,extra={})=>worker.fetch(new Request(api+path,{method,headers:{Origin:origin,'X-Note-Visitor':visitor,'Content-Type':'application/json',...extra},body:data?JSON.stringify(data):undefined}),env);
+const preflight=await call('/api/notes','OPTIONS');assert.equal(preflight.status,204);assert.equal(preflight.headers.get('Access-Control-Allow-Origin'),origin);assert.ok(preflight.headers.get('Access-Control-Allow-Headers').includes('X-Note-Visitor'));
+assert.equal((await call('/api/notes','OPTIONS',undefined,{Origin:'https://evil.example'})).status,403);
+const saved=await call('/api/notes','POST',{message:'Pages 私人纸条验证',styleVariant:'sticky',textColor:'#974e70',stickers:[],visibility:'private'});assert.equal(saved.status,201);assert.equal(saved.headers.get('Access-Control-Allow-Origin'),origin);const note=await saved.json();
+assert.ok((await(await call('/api/notes/mine')).json()).some(n=>n.id===note.id));assert.ok(!(await(await call('/api/notes/mine','GET',undefined,{'X-Note-Visitor':crypto.randomUUID()})).json()).some(n=>n.id===note.id));
+assert.ok(!(await(await call('/api/notes')).json()).some(n=>n.id===note.id));assert.equal((await call(`/api/notes/${note.id}/visibility`,'POST',{visibility:'public'})).status,200);assert.ok((await(await call('/api/notes')).json()).some(n=>n.id===note.id));
+assert.equal((await call('/api/notes','POST',{message:'bad'},{Origin:'https://evil.example'})).status,403);
+console.log('PASS: Pages CORS preflight; cookie-free visitor ownership; private isolation; public sharing; foreign origins rejected.');

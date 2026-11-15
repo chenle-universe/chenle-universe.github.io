@@ -1,0 +1,3 @@
+'use client';
+import {useId} from 'react';
+export default function CutChevron(){const id=useId();return <svg viewBox="0 0 36 42" aria-hidden="true" className="cut-chevron"><defs><linearGradient id={id} x2="1" y2="1"><stop stopColor="#fffef3"/><stop offset=".5" stopColor="#e3e9ff"/><stop offset="1" stopColor="#b39bdc"/></linearGradient></defs><path d="m6 12 12 10 12-10v7L18 30 6 19z" fill="#ad92cd" opacity=".8"/><path d="m6 8 12 10L30 8v7L18 26 6 15z" fill={`url(#${id})`} stroke="#fffdf8" strokeWidth="1.5" strokeLinejoin="round"/><path d="m9 29 9 7 9-7" fill="none" stroke="#fff9db" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}

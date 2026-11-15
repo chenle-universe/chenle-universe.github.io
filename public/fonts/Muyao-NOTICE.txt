@@ -1,0 +1,6 @@
+Muyao-Softbrush / 沐瑶软笔手写体
+Author: 春颜秋色
+Source and author declaration: https://www.zcool.com.cn/work/ZMjg5MjAwMDQ=.html
+2021-06-28 rebuilt release and usage information: https://www.zishuai.com/freefonts/1309.html
+Webfont distribution used: https://www.zishuai.com/wp-content/uploads/webfont/1309/Regular/1309-Regular.css
+The author declares free personal and commercial use and retains creator rights. The source explicitly allows website design and embedded applications. The 2021 rebuilt release supersedes the old Flexifont-generated release. Source webfont unicode shards are retained without glyph changes; CSS family is given a local name and uses font-display: swap.

@@ -1,0 +1,39 @@
+{
+  "filename": "chenle-universe-deploy.zip",
+  "size": 127292575,
+  "sha256": "f37cba8101d4e51c34bc79f368c274bf5dadf399a689dfcd8c6f0eba9379c7fa",
+  "parts": [
+    {
+      "path": "/downloads/parts/chenle-deploy-000.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-001.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-002.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-003.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-004.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-005.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-006.bin",
+      "size": 16777216
+    },
+    {
+      "path": "/downloads/parts/chenle-deploy-007.bin",
+      "size": 9852063
+    }
+  ]
+}

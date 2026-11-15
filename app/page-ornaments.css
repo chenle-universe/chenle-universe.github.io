@@ -1,0 +1,7 @@
+/* Transparent stickers scatter only into measured empty spaces inside each page. */
+main[data-page]{position:relative;padding-top:26px;padding-bottom:12px;isolation:isolate}
+.page-ornaments{position:absolute;inset:0;z-index:4;pointer-events:none;user-select:none;overflow:hidden}
+.page-ornaments img{position:absolute;display:block;object-fit:contain;pointer-events:none;filter:drop-shadow(0 3px 3px #7188a52b)}
+.ornament-bottom-space{height:80px;pointer-events:none}
+@media(max-width:650px){main[data-page]{padding-top:18px}.ornament-bottom-space{height:64px}}
+@media(prefers-reduced-motion:reduce){.page-ornaments img{animation:none}}

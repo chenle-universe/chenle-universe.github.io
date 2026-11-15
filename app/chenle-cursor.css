@@ -1,0 +1,8 @@
+/* Native cursor bitmaps: immediate OS pointer tracking, no overlay or rAF. */
+@media (hover:hover) and (pointer:fine) {
+  html,body,body * { cursor:url('/cursors/chenle-music-arrow.png') 10 13,auto !important; }
+  body a,body button,body [role='button'],body summary,body label[for],body input[type='checkbox'],body input[type='radio'],body input[type='range'],body a *,body button *,body [role='button'] *,body summary * { cursor:url('/cursors/chenle-music-arrow.png') 10 13,pointer !important; }
+  body input:not([type='checkbox']):not([type='radio']):not([type='range']),body textarea,body [contenteditable='true'] { cursor:text !important; }
+  body button:disabled,body [aria-disabled='true'] { cursor:not-allowed !important; }
+  body canvas:active,body .is-dragging,body .is-dragging * { cursor:grabbing !important; }
+}

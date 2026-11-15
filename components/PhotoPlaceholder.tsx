@@ -1,0 +1,1 @@
+import type {Lang} from '../data/content';export default function PhotoPlaceholder({src,label,lang}:{src?:string;label:string;lang:Lang}){return src?<img className="real-photo" src={src} alt={label}/>:<div className="photo-placeholder large"><span>✧</span><b>{label}</b><small>{lang==='zh'?'照片待添加 · 非正式素材':'사진 준비 중 · 임시 자리'}</small></div>}

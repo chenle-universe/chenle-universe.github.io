@@ -1,0 +1,19 @@
+'use client';
+import {useState,type CSSProperties} from 'react';
+import {Mic,Headphones,Music2,Dog,Pause,Play} from 'lucide-react';
+import type {ChenleMessage} from '../data/chenleMessages';
+import type {Lang} from '../data/content';
+import {noteNickname} from '../lib/note-nickname';
+import {noteStarPositions,noteStarAppearance,noteMeteorKinds} from '../lib/note-constellation';
+export function MeteorGlyph({kind}:{kind:typeof noteMeteorKinds[number]}){
+ if(kind==='microphone')return <Mic size={25} strokeWidth={1.7}/>;
+ if(kind==='headphones')return <Headphones size={25} strokeWidth={1.7}/>;
+ if(kind==='music')return <Music2 size={25} strokeWidth={1.7}/>;
+ if(kind==='puppy')return <Dog size={25} strokeWidth={1.6}/>;
+ if(kind==='basketball')return <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="16" cy="16" r="12" fill="currentColor" fillOpacity=".12"/><path d="M4 16h24M16 4v24M8 7q16 9 0 18M24 7Q8 16 24 25"/></svg>;
+ return <svg width="30" height="25" viewBox="0 0 96 85" fill="currentColor" fillOpacity=".75"><path d="M5 66C14 26 39 11 57 25L70 11L68 32C76 35 86 31 92 36L77 44C69 56 58 50 55 43C42 38 30 45 24 58L32 73L19 68C13 81 4 85 1 81L8 71Z"/><circle cx="70" cy="37" r="2" fill="#607d9e"/></svg>;
+}
+export default function NotesConstellation({notes,lang,onOpen,status}:{notes:ChenleMessage[];lang:Lang;onOpen:(n:ChenleMessage)=>void;status:(n:ChenleMessage)=>string}){
+ const [still,setStill]=useState(false);
+ return <div className={`notes-constellation ${still?'sky-still':''}`}><div className="notes-sky-caption"><span>{lang==='zh'?'轻点一颗星星，读一份心意。':'별 하나를 눌러 작은 마음을 읽어 봐요.'}</span><button type="button" onClick={()=>setStill(s=>!s)} aria-pressed={still} aria-label={lang==='zh'?(still?'开启流星':'暂停流星'):(still?'유성 켜기':'유성 멈추기')}>{still?<Play size={13}/>:<Pause size={13}/>}<span>{lang==='zh'?(still?'开启流星':'静止星空'):(still?'유성 켜기':'고요한 밤')}</span></button></div><div className="notes-starfield" role="group" aria-label={lang==='zh'?'留言星空，点击星星阅读留言':'별을 눌러 메모를 읽는 방명록 별하늘'}><div className="notes-sky-dust" aria-hidden="true">{Array.from({length:38},(_,i)=><i key={i} className={i%7===0?'dust-cross':''} style={{left:`${(i*37+3)%100}%`,top:`${(i*23+7)%100}%`,animationDelay:`${-(i%13)}s`,opacity:.2+(i%5)*.12}}/>)}</div><svg className="notes-constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M18 17 51 11 82 23 68 40 33 37 13 57M68 40 87 60 73 84 48 62 28 82"/></svg><div className="notes-meteors" aria-hidden="true">{noteMeteorKinds.map((kind,i)=><div className={`notes-meteor meteor-${i}`} key={kind} style={{'--meteor-x':`${55+(i*13)%50}%`,'--meteor-y':`${2+(i*17)%55}%`,'--meteor-duration':`${19+i*3}s`,'--meteor-delay':`${-i*5-1}s`} as CSSProperties}><span className="notes-meteor-tail"/><span className="notes-meteor-head"><MeteorGlyph kind={kind}/></span></div>)}</div>{notes.slice(0,10).map((n,i)=>{const [x,y]=noteStarPositions[i],look=noteStarAppearance(n.id);return <button type="button" key={n.id} className="note-message-star" onClick={()=>onOpen(n)} aria-label={`${lang==='zh'?'打开留言':'메모 열기'} · ${noteNickname(n,lang)} · ${status(n)}`} style={{left:`${x}%`,top:`${y}%`,'--star-size':`${look.size}px`,'--star-color':look.color,'--star-delay':`${look.delay}s`} as CSSProperties}><span className="note-star-halo" aria-hidden="true"/><svg className="note-star-core" width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 2 38 25 62 32 38 39 32 62 25 39 2 32 25 25Z" fill="currentColor"/><path d="m12 12 20 13 20-13-13 20 13 20-20-13-20 13 13-20z" fill="currentColor" opacity=".32"/><circle cx="32" cy="32" r="4" fill="#fff"/></svg><span className="note-star-sender">{noteNickname(n,lang)}</span><span className="note-star-status">{status(n)}</span></button>})}<span className="notes-sky-coordinate" aria-hidden="true">11°22′ / CHENLE'S LITTLE GALAXY</span></div></div>
+}
